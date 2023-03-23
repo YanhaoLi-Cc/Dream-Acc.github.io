@@ -241,25 +241,25 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #7d8e95 0%, #344648 100%);
 }
 
-.text-color {
+/* .text-color {
     color: #0f9d58 !important;
-}
+} */
 
 .white-color {
     color: #fff;
 }
 
-.progress-bar {
+/* .progress-bar {
     height: 4px;
     position: fixed;
     bottom: 0;
     z-index: 300;
     background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
     opacity: 0.8;
-}
+} */
 
 .sidenav-overlay {
     z-index: 500;
@@ -550,10 +550,10 @@ header .go-back i {
     height: 40vh !important;
 }
 
-.bg-cover:after {
+/* .bg-cover:after {
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
-}
+} */
 
 .bg-cover:before,
 .bg-cover:after {
