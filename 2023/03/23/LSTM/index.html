@@ -402,14 +402,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-23
+                    2023-03-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    639
                 </div>
                 
 
@@ -457,14 +457,20 @@
 </li>
 </ul>
 <h3 id="2-2输入门、忘记门和输出门"><a href="#2-2输入门、忘记门和输出门" class="headerlink" title="2.2输入门、忘记门和输出门"></a>2.2输入门、忘记门和输出门</h3><p>就如在门控循环单元中一样， 当前时间步的输入和前一个时间步的隐状态作为数据送入长短期记忆网络的门中， 如图所示。它们由三个具有sigmoid激活函数的全连接层处理，以计算输入门、遗忘门和输出门的值。因此，这三个门的值都在(0,1)的范围内。</p>
-<img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230322113226798.png" alt="image-20230322113226798" style="zoom:80%;" />
-
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230322113226798.png" alt="" style="zoom:80%;" /></p>
 <p><strong>长短期记忆网络的数学表达。</strong></p>
 <p>假设有$ℎ$个隐藏单元，批量大小为$n$，输入数为$d$。 </p>
-<p>因此，输入为$X_t \in \R^{n<em>d}$，前一时间步的隐状态为$H_{t-1} \in \R^{n</em>h}$。 </p>
-<p>相应地，时间步$t$的门被定义如下：输入门是$I_t \in \R^{n<em>h}$， 遗忘门是$F_t \in \R^{n</em>h}$， 输出门是$O_t \in \R^{n*h}$。</p>
-<p>它们的计算方法如下：<br>$$<br>I_t&#x3D;\alpha(X_tW_{xi}+H_{t-1}W_{hi}+b_i)\<br>F_t&#x3D;\alpha(X_tW_{xf}+H_{t-1}W_{hf}+b_f)\<br>O_t&#x3D;\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\ \tag{2.2.1}<br>$$</p>
-
+<p>输入为$X_t \in \mathbb {R}^{n*d}$</p>
+<p>前一时间步的隐状态为$H_{t-1} \in \mathbb {R}^{n*h}$。 </p>
+<p>相应地，时间步$t$的门被定义如下：</p>
+<p>输入门是$I_t \in \mathbb {R}^{n*h}$ </p>
+<p>遗忘门是$F_t \in \mathbb {R}^{n*h}$</p>
+<p> 输出门是$O_t \in \mathbb {R}^{n*h}$。</p>
+<p>它们的计算方法如下：</p>
+<script type="math/tex; mode=display">
+I_t=\alpha(X_tW_{xi}+H_{t-1}W_{hi}+b_i)\\
+F_t=\alpha(X_tW_{xf}+H_{t-1}W_{hf}+b_f)\\
+O_t=\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\\ \tag{2.2.1}</script>
                 
             </div>
             <hr/>
@@ -813,6 +819,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
