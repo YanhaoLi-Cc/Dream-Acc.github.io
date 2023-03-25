@@ -476,10 +476,6 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
 
                                 </div>
                             </div>
@@ -513,10 +509,6 @@
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 
                         </div>
@@ -626,7 +618,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Deep Learning","value":2},{"name":"Graph Learning","value":1}],
+                data: [{"name":"Graph Learning","value":1},{"name":"Deep Learning","value":2}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -650,7 +642,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Deep Learning","GRU","GCN","Graph Learning","LSTM"]
+                data: ["Deep Learning","GCN","Graph Learning","LSTM","GRU"]
             }
         ],
         yAxis: [
@@ -833,14 +825,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/GRU/">
-                <span class="chip center-align waves-effect waves-light chip-default">GRU</span>
-            </a>
-            
-            
-            
-            
-            
             <a href="/tags/GCN/">
                 <span class="chip center-align waves-effect waves-light chip-default">GCN</span>
             </a>
@@ -851,6 +835,14 @@
             
             <a href="/tags/LSTM/">
                 <span class="chip center-align waves-effect waves-light chip-default">LSTM</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/GRU/">
+                <span class="chip center-align waves-effect waves-light chip-default">GRU</span>
             </a>
             
             
@@ -976,7 +968,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2020-2023</span>
             
             <a href="/about" target="_blank">Yanhao Li</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1038,10 +1030,6 @@
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
@@ -1209,15 +1197,6 @@ $(function () {
     
     
     
-        
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
-            }
-        </script>
-    
 
     <!-- 雪花特效 -->
     
@@ -1264,6 +1243,8 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
