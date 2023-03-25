@@ -5,11 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="GCN, Dream-Acc">
-    <meta name="description" content="GCN 图卷积神经网络无穷的远方，无数的人们，都和我有关。——鲁迅《且介亭杂文末集·这也是生活》
-1. 将节点映射为d维向量图神经网络的基本原理是：
-将图中节点编码映射成一个低维连续稠密的d维向量
-d可以为128、256…
-这个向量可以反映">
+    <meta name="description" content="无穷的远方，无数的人们，都和我有关。——鲁迅《且介亭杂文末集·这也是生活》">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -56,7 +52,9 @@ d可以为128、256…
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -432,6 +430,9 @@ d可以为128、256…
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -447,26 +448,26 @@ d可以为128、256…
 <p><strong>将图中节点编码映射成一个低维连续稠密的d维向量</strong></p>
 <p>d可以为128、256…</p>
 <p>这个向量可以反映在原图的属性关系</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325195204078.png" alt="图1.1 节点映射为d维向量" style="zoom:80%;" /></p>
-<h2 id="2-计算图"><a href="#2-计算图" class="headerlink" title="2. 计算图"></a>2. 计算图</h2><h3 id="2-1-通过局部邻域构建计算图"><a href="#2-1-通过局部邻域构建计算图" class="headerlink" title="2.1 通过局部邻域构建计算图"></a>2.1 通过局部邻域构建计算图</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152228320.png" alt="图2.1.1 计算图" style="zoom:80%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325195204078.png" alt="图1.1 节点映射为d维向量" style="zoom:80%;"></p>
+<h2 id="2-计算图"><a href="#2-计算图" class="headerlink" title="2. 计算图"></a>2. 计算图</h2><h3 id="2-1-通过局部邻域构建计算图"><a href="#2-1-通过局部邻域构建计算图" class="headerlink" title="2.1 通过局部邻域构建计算图"></a>2.1 通过局部邻域构建计算图</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152228320.png" alt="图2.1.1 计算图" style="zoom:80%;"></p>
 <p>每个节点可以分别构建自己的计算图</p>
 <p>例如图2.1中的图，每个节点对应的计算图如下所示</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152531870.png" alt="图2.1.2 每个节点对应的计算图" style="zoom:67%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152531870.png" alt="图2.1.2 每个节点对应的计算图" style="zoom:67%;"></p>
 <p>在计算图中，所有的黑色神经网络共享一套参数，所有的白色神经网络共享一套参数。</p>
 <h3 id="2-2-图神经网络层数"><a href="#2-2-图神经网络层数" class="headerlink" title="2.2 图神经网络层数"></a>2.2 图神经网络层数</h3><p><strong>图神经网络的层数，是计算图的层数，而不是神经网络的层数。</strong></p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152854348.png" alt="图2.2.1 图神经网络的层数" style="zoom:67%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152854348.png" alt="图2.2.1 图神经网络的层数" style="zoom:80%;"></p>
 <p>上图的图神经网络层数为2，因为计算图为2层。Layer-1、Layer-2中的神经网络层数可以为任意大小。Layer-0为节点的属性特征，是自带的，无须学习。 </p>
 <p>图神经网络（计算图）可以任意深，但是根据“六度空间”理论，理论上已经可以得到所有信息。</p>
 <p>图神经网络不能无限深，因为会导致所有计算图的节点都很类似，会产生过平滑（over smoothing）问题。所有节点的嵌入都会收敛到同一个值，即所有节点的embedding都相同。因此图神经网络一般两三层就足够了。</p>
 <p>计算图的原理：</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325154822470.png" alt="图2.2.2 两层计算图原理" style="zoom:67%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325154822470.png" alt="图2.2.2 两层计算图原理" style="zoom:67%;"></p>
 <p>左图是过程，右图目标节点是最终得到的计算图</p>
-<h3 id="2-3-K层GCC的感受野"><a href="#2-3-K层GCC的感受野" class="headerlink" title="2.3 K层GCC的感受野"></a>2.3 K层GCC的感受野</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325153428719.png" alt="图2.3.1 K层GCC的感受野" style="zoom:67%;" /></p>
+<h3 id="2-3-K层GCC的感受野"><a href="#2-3-K层GCC的感受野" class="headerlink" title="2.3 K层GCC的感受野"></a>2.3 K层GCC的感受野</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325153428719.png" alt="图2.3.1 K层GCC的感受野" style="zoom:80%;"></p>
 <p>1-layer就是目标节点的邻居</p>
 <p>2-layer就是目标节点邻居的邻居</p>
 <p>3-layer就是目标节点邻居的邻居的邻居</p>
 <p><em>层数越多，感受野越大。感受野这个词还是挺形象的</em></p>
-<h3 id="2-4-举个例子"><a href="#2-4-举个例子" class="headerlink" title="2.4 举个例子"></a>2.4 举个例子</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325155341547.png" alt="图2.4.1 无自身信息的图卷积神经网络" style="zoom:80%;" /></p>
+<h3 id="2-4-举个例子"><a href="#2-4-举个例子" class="headerlink" title="2.4 举个例子"></a>2.4 举个例子</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325155341547.png" alt="图2.4.1 无自身信息的图卷积神经网络" style="zoom:80%;"></p>
 <p>每个节点都是128*1的向量</p>
 <p>图卷积神经网络第一层：</p>
 <ul>
@@ -486,7 +487,7 @@ z_v=h_v^K\\</script><ul>
 <li>k+1层v节点的嵌入是由第k层邻域节点u算出来的。其实就是对k层节点求平均后输入到卷积神经网络，经过非线性激活，得到k+1层嵌入。这是一个递归的过程。</li>
 <li>假设这个卷积神经网络只有两层，K=2，就以第二层v节点的z作为最后的输出的embedding。</li>
 </ul>
-<h3 id="3-2-矩阵表示"><a href="#3-2-矩阵表示" class="headerlink" title="3.2 矩阵表示"></a>3.2 矩阵表示</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325164450391.png" alt="图3.2.1 矩阵表示的每一步解释" style="zoom:70%;" /></p>
+<h3 id="3-2-矩阵表示"><a href="#3-2-矩阵表示" class="headerlink" title="3.2 矩阵表示"></a>3.2 矩阵表示</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325164450391.png" alt="图3.2.1 矩阵表示的每一步解释" style="zoom:70%;"></p>
 <ul>
 <li><p>第k层所有的嵌入为$H^{(k)}=[h_1^{(k)}…h_{|V|}^{(k)}]^T$，在这个大矩阵中，每个节点的嵌入就是其中一行。</p>
 </li>
@@ -497,7 +498,7 @@ z_v=h_v^K\\</script><ul>
 <li><p>$D^{-1}A$是Row Normalized Matrix，<strong>最大特征值为1</strong>。</p>
 </li>
 </ul>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325170802811.png" alt="图3.2.2 计算$A_{row}$的一个例子" style="zoom:80%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325170802811.png" alt="图3.2.2 计算$A_{row}$的一个例子" style="zoom:80%;"></p>
 <p>$A_{row}=D^{-1}A$的特点：</p>
 <ul>
 <li>$A_{row}$是一个非对称矩阵</li>
@@ -508,14 +509,14 @@ z_v=h_v^K\\</script><ul>
 </ul>
 <p><em>因此，使用$D^{-1}A$计算权重不太科学。</em></p>
 <p><strong>最终，我们使用$A_{sym}=D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$</strong></p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325184824963.png" alt="图3.2.3 $D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$对应计算结果" style="zoom:80%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325184824963.png" alt="图3.2.3 $D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$对应计算结果" style="zoom:80%;"></p>
 <p><strong>$A_{sym}=D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$的特点：</strong></p>
 <ul>
 <li><strong>$A_{sym}$是一个对称矩阵</strong></li>
 <li><strong>最大特征值为1</strong></li>
 </ul>
 <h3 id="3-3-tilde-A-ij-含义"><a href="#3-3-tilde-A-ij-含义" class="headerlink" title="3.3 $\tilde{A_{ij}}$含义"></a>3.3 $\tilde{A_{ij}}$含义</h3><script type="math/tex; mode=display">
-\tilde{A_{ij}}=\frac{1}{\sqrt{d_i}\sqrt{d_j}}</script><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325190459336.png" alt="图3.3.1 $\tilde{A_{ij}}$的两种情况" style="zoom:80%;" /></p>
+\tilde{A_{ij}}=\frac{1}{\sqrt{d_i}\sqrt{d_j}}</script><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325190459336.png" alt="图3.3.1 $\tilde{A_{ij}}$的两种情况" style="zoom:80%;"></p>
 <ul>
 <li>如果i和j直接相连，那么$\tilde{A_{ij}}$为1，此时关联程度较高</li>
 <li>反之，关联程度较低，为$Small\tilde{A_{ij}}$</li>
@@ -532,13 +533,13 @@ h_v^{(0)}=x_v \\
 h_v^{(k+1)}=\alpha(D^{-\frac{1}{2}}AD^{-\frac{1}{2}}H^{(k)}W^{(k)})\\
 z_v=h_v^K\\</script><p>$W^{(k)}$是可学习的参数矩阵</p>
 <p>$D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$无需学习，图一旦确定，该矩阵就已经确定</p>
-<h2 id="4-self-edge的GCN"><a href="#4-self-edge的GCN" class="headerlink" title="4. self edge的GCN"></a>4. self edge的GCN</h2><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325192732450.png" alt="图4.1 有self edge的GCN" style="zoom:80%;" /></p>
+<h2 id="4-self-edge的GCN"><a href="#4-self-edge的GCN" class="headerlink" title="4. self edge的GCN"></a>4. self edge的GCN</h2><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325192732450.png" alt="图4.1 有self edge的GCN" style="zoom:80%;"></p>
 <p>添加了self embedding</p>
 <h3 id="4-1-self-edge的数学形式"><a href="#4-1-self-edge的数学形式" class="headerlink" title="4.1 self edge的数学形式"></a>4.1 self edge的数学形式</h3><p>此时的数学形式为</p>
 <script type="math/tex; mode=display">
 H_i^{(k)}=\alpha(\sum_{j \in \{N(i) \cup i\} }\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\tilde{D_{ij}}}}H_j^{(k-1)}W^{(k)})\\</script><p>或者可以写为</p>
 <script type="math/tex; mode=display">
-H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\tilde{D_{ij}}}}H_j^{(k-1)}W^{(k)}+\frac{1}{\tilde{D_{ij}}}H_i^{(k-1)}W^{(k)})\\</script><h2 id="5-思考"><a href="#5-思考" class="headerlink" title="5. 思考"></a>5. 思考</h2><h3 id="5-1-半监督节点分类方法"><a href="#5-1-半监督节点分类方法" class="headerlink" title="5.1 半监督节点分类方法"></a>5.1 半监督节点分类方法</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325194130121.png" alt="图5.1.1 半监督节点分类方法对比" style="zoom:80%;" /></p>
+H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\tilde{D_{ij}}}}H_j^{(k-1)}W^{(k)}+\frac{1}{\tilde{D_{ij}}}H_i^{(k-1)}W^{(k)})\\</script><h2 id="5-思考"><a href="#5-思考" class="headerlink" title="5. 思考"></a>5. 思考</h2><h3 id="5-1-半监督节点分类方法"><a href="#5-1-半监督节点分类方法" class="headerlink" title="5.1 半监督节点分类方法"></a>5.1 半监督节点分类方法</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325194130121.png" alt="图5.1.1 半监督节点分类方法对比" style="zoom:80%;"></p>
 <ol>
 <li>人工特征工程：节点重要度、集群系数、Graphlet等。</li>
 <li>基于随机游走的方法：构造自监督表示学习任务实现图嵌入。无法泛化到新节点。例如: DeepWalk、Node2Vec、LINE、SDNE等。</li>
@@ -588,7 +589,7 @@ H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\til
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/03/25/GCN/">https://dream-acc.github.io/2023/03/25/GCN/</a>
+                    <a href="https://dream-acc.github.io/2023/03/25/gcn/">https://dream-acc.github.io/2023/03/25/gcn/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -715,7 +716,7 @@ H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\til
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2023/03/25/GCN/">
+                <a href="/2023/03/25/gcn/">
                     <div class="card-image">
                         
                         
@@ -727,7 +728,7 @@ H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\til
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            无穷的远方，无数的人们，都和我有关。——鲁迅《且介亭杂文末集·这也是生活》
                         
                     </div>
                     <div class="publish-info">
@@ -769,7 +770,7 @@ H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\til
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/23/GRU/">
+                <a href="/2023/03/23/gru/">
                     <div class="card-image">
                         
                         
@@ -781,7 +782,7 @@ H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\til
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            不是每个观察值都同等重要。通过门控单元，选择重要的内容，忘记不重要的内容。
                         
                     </div>
                     <div class="publish-info">
@@ -826,6 +827,9 @@ H_i^{(k)}=\alpha(\sum_{j \in N(i)}\frac{\tilde{A_{ij}}}{\sqrt{\tilde{D_{ij}}\til
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
