@@ -410,14 +410,14 @@ d可以为128、256…
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    644
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -472,6 +472,34 @@ d可以为128、256…
 <p>第二层：</p>
 <ul>
 <li>BCD逐元素求平均，得到新的512维的向量，输入到白色卷积神经网络中，最终得到256维A的embedding，作为A节点的输出。</li>
+</ul>
+<h2 id="3-数学形式"><a href="#3-数学形式" class="headerlink" title="3. 数学形式"></a>3. 数学形式</h2><h3 id="3-1-数学公式表示"><a href="#3-1-数学公式表示" class="headerlink" title="3.1 数学公式表示"></a>3.1 数学公式表示</h3><script type="math/tex; mode=display">
+h_v^{(0)}=x_v \\
+h_v^{(k+1)}=\alpha(W_k\sum_{u \in N(v)}\frac{h_u^k}{|N(v)|})\\
+z_v=h_v^K\\</script><ul>
+<li>第0层的属性嵌入就是每个节点的属性特征。</li>
+<li>k+1层v节点的嵌入是由第k层邻域节点u算出来的。其实就是对k层节点求平均后输入到卷积神经网络，经过非线性激活，得到k+1层嵌入。这是一个递归的过程。</li>
+<li>假设这个卷积神经网络只有两层，K=2，就以第二层v节点的z作为最后的输出的embedding。</li>
+</ul>
+<h3 id="3-2-矩阵表示"><a href="#3-2-矩阵表示" class="headerlink" title="3.2 矩阵表示"></a>3.2 矩阵表示</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325164450391.png" alt="矩阵表示的每一步解释" style="zoom:70%;" /></p>
+<ul>
+<li><p>第k层所有的嵌入为$H^{(k)}=[h_1^{(k)}…h_{|V|}^{(k)}]^T$，在这个大矩阵中，每个节点的嵌入就是其中一行。</p>
+</li>
+<li><p>对$H$矩阵左乘一个邻接矩阵A的第v行，也就是$A_vH^{(k)}$，就可以把$v$节点的邻域节点挑出来，得到v节点的embedding。其实也就是求和的过程。</p>
+</li>
+<li><p>求平均的过程：找出一个$D$矩阵（一个对角矩阵）， 每个元素是对应节点的连接数。$D^{-1}AH^{(k)}$中的$D^{-1}$就是求平均的过程。</p>
+</li>
+<li><p>$D^{-1}A$是Row Normalized Matrix，<strong>最大特征值为1</strong>。</p>
+</li>
+</ul>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325170802811.png" alt="计算$A_{row}$的一个例子" style="zoom:80%;" /></p>
+<p>$A_{row}=D^{-1}A$的特点：</p>
+<ul>
+<li>$A_{row}$是一个非对称矩阵</li>
+<li>$A_{col}$和$A_{row}$互为转置</li>
+<li>最大特征值为1</li>
+<li>只按照自己的度，对所有渠道来的信息强行求平均</li>
+<li>没有考虑对方的连接数</li>
 </ul>
 
                 
@@ -921,7 +949,7 @@ d可以为128、256…
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.6k</span>
+                        class="white-color">3k</span>
             
             
             
