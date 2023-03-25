@@ -6,7 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="GCN, Dream-Acc">
     <meta name="description" content="GCN 图卷积神经网络无穷的远方，无数的人们，都和我有关。——鲁迅《且介亭杂文末集·这也是生活》
-">
+1. 将节点映射为d维向量图神经网络的基本原理是：
+将图中节点编码映射成一个低维连续稠密的d维向量
+d可以为128、256…
+这个向量可以反映">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -407,14 +410,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    37
+                    644
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -435,6 +438,41 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="GCN-图卷积神经网络"><a href="#GCN-图卷积神经网络" class="headerlink" title="GCN 图卷积神经网络"></a>GCN 图卷积神经网络</h1><p><em>无穷的远方，无数的人们，都和我有关。——鲁迅《且介亭杂文末集·这也是生活》</em></p>
+<h2 id="1-将节点映射为d维向量"><a href="#1-将节点映射为d维向量" class="headerlink" title="1. 将节点映射为d维向量"></a>1. 将节点映射为d维向量</h2><p>图神经网络的基本原理是：</p>
+<p><strong>将图中节点编码映射成一个低维连续稠密的d维向量</strong></p>
+<p>d可以为128、256…</p>
+<p>这个向量可以反映在原图的属性关系</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325151341827.png" alt="图1.1 节点映射为d维向量" style="zoom:80%;" /></p>
+<h2 id="2-计算图"><a href="#2-计算图" class="headerlink" title="2. 计算图"></a>2. 计算图</h2><h3 id="2-1-通过局部邻域构建计算图"><a href="#2-1-通过局部邻域构建计算图" class="headerlink" title="2.1 通过局部邻域构建计算图"></a>2.1 通过局部邻域构建计算图</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152228320.png" alt="图2.1 计算图" style="zoom:80%;" /></p>
+<p>每个节点可以分别构建自己的计算图</p>
+<p>例如图2.1中的图，每个节点对应的计算图如下所示</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152531870.png" alt="图2.2 每个节点对应的计算图" style="zoom:67%;" /></p>
+<p>在计算图中，所有的黑色神经网络共享一套参数，所有的白色神经网络共享一套参数。</p>
+<h3 id="2-2-图神经网络层数"><a href="#2-2-图神经网络层数" class="headerlink" title="2.2 图神经网络层数"></a>2.2 图神经网络层数</h3><p><strong>图神经网络的层数，是计算图的层数，而不是神经网络的层数。</strong></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152854348.png" alt="图2.3 图神经网络的层数" style="zoom:67%;" /></p>
+<p>上图的图神经网络层数为2，因为计算图为2层。Layer-1、Layer-2中的神经网络层数可以为任意大小。Layer-0为节点的属性特征，是自带的，无须学习。 </p>
+<p>图神经网络（计算图）可以任意深，但是根据“六度空间”理论，理论上已经可以得到所有信息。</p>
+<p>图神经网络不能无限深，因为会导致所有计算图的节点都很类似，会产生过平滑（over smoothing）问题。所有节点的嵌入都会收敛到同一个值，即所有节点的embedding都相同。因此图神经网络一般两三层就足够了。</p>
+<p>计算图的原理：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325154822470.png" alt="两层计算图原理" style="zoom:67%;" /></p>
+<p>左图是过程，右图目标节点是最终得到的计算图</p>
+<h3 id="2-3-K层GCC的感受野"><a href="#2-3-K层GCC的感受野" class="headerlink" title="2.3 K层GCC的感受野"></a>2.3 K层GCC的感受野</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325153428719.png" alt="K层GCC的感受野" style="zoom:67%;" /></p>
+<p>1-layer就是目标节点的邻居</p>
+<p>2-layer就是目标节点邻居的邻居</p>
+<p>3-layer就是目标节点邻居的邻居的邻居</p>
+<p><em>层数越多，感受野越大。感受野这个词还是挺形象的</em></p>
+<h3 id="2-4-举个例子"><a href="#2-4-举个例子" class="headerlink" title="2.4 举个例子"></a>2.4 举个例子</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325155341547.png" alt="无自身信息的图卷积神经网络" style="zoom:80%;" /></p>
+<p>每个节点都是128*1的向量</p>
+<p>图卷积神经网络第一层：</p>
+<ul>
+<li>计算B的embedding时，A和C逐元素求平均，得到一个新的128*1维的向量。输入到黑色卷积神经网络中， 输出为512*1维度的向量。</li>
+<li>计算C的embedding，就是计算ABEF的平均，得到128维向量，卷积后输出512维向量。</li>
+<li>D同理。 </li>
+</ul>
+<p>第二层：</p>
+<ul>
+<li>BCD逐元素求平均，得到新的512维的向量，输入到白色卷积神经网络中，最终得到256维A的embedding，作为A节点的输出。</li>
+</ul>
 
                 
             </div>
@@ -883,7 +921,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2k</span>
+                        class="white-color">2.6k</span>
             
             
             
