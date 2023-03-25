@@ -443,25 +443,25 @@ d可以为128、256…
 <p>d可以为128、256…</p>
 <p>这个向量可以反映在原图的属性关系</p>
 <p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325151341827.png" alt="图1.1 节点映射为d维向量" style="zoom:80%;" /></p>
-<h2 id="2-计算图"><a href="#2-计算图" class="headerlink" title="2. 计算图"></a>2. 计算图</h2><h3 id="2-1-通过局部邻域构建计算图"><a href="#2-1-通过局部邻域构建计算图" class="headerlink" title="2.1 通过局部邻域构建计算图"></a>2.1 通过局部邻域构建计算图</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152228320.png" alt="图2.1 计算图" style="zoom:80%;" /></p>
+<h2 id="2-计算图"><a href="#2-计算图" class="headerlink" title="2. 计算图"></a>2. 计算图</h2><h3 id="2-1-通过局部邻域构建计算图"><a href="#2-1-通过局部邻域构建计算图" class="headerlink" title="2.1 通过局部邻域构建计算图"></a>2.1 通过局部邻域构建计算图</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152228320.png" alt="图2.1.1 计算图" style="zoom:80%;" /></p>
 <p>每个节点可以分别构建自己的计算图</p>
 <p>例如图2.1中的图，每个节点对应的计算图如下所示</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152531870.png" alt="图2.2 每个节点对应的计算图" style="zoom:67%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152531870.png" alt="图2.1.2 每个节点对应的计算图" style="zoom:67%;" /></p>
 <p>在计算图中，所有的黑色神经网络共享一套参数，所有的白色神经网络共享一套参数。</p>
 <h3 id="2-2-图神经网络层数"><a href="#2-2-图神经网络层数" class="headerlink" title="2.2 图神经网络层数"></a>2.2 图神经网络层数</h3><p><strong>图神经网络的层数，是计算图的层数，而不是神经网络的层数。</strong></p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152854348.png" alt="图2.3 图神经网络的层数" style="zoom:67%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325152854348.png" alt="图2.2.1 图神经网络的层数" style="zoom:67%;" /></p>
 <p>上图的图神经网络层数为2，因为计算图为2层。Layer-1、Layer-2中的神经网络层数可以为任意大小。Layer-0为节点的属性特征，是自带的，无须学习。 </p>
 <p>图神经网络（计算图）可以任意深，但是根据“六度空间”理论，理论上已经可以得到所有信息。</p>
 <p>图神经网络不能无限深，因为会导致所有计算图的节点都很类似，会产生过平滑（over smoothing）问题。所有节点的嵌入都会收敛到同一个值，即所有节点的embedding都相同。因此图神经网络一般两三层就足够了。</p>
 <p>计算图的原理：</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325154822470.png" alt="两层计算图原理" style="zoom:67%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325154822470.png" alt="图2.2.2 两层计算图原理" style="zoom:67%;" /></p>
 <p>左图是过程，右图目标节点是最终得到的计算图</p>
-<h3 id="2-3-K层GCC的感受野"><a href="#2-3-K层GCC的感受野" class="headerlink" title="2.3 K层GCC的感受野"></a>2.3 K层GCC的感受野</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325153428719.png" alt="K层GCC的感受野" style="zoom:67%;" /></p>
+<h3 id="2-3-K层GCC的感受野"><a href="#2-3-K层GCC的感受野" class="headerlink" title="2.3 K层GCC的感受野"></a>2.3 K层GCC的感受野</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325153428719.png" alt="图2.3.1 K层GCC的感受野" style="zoom:67%;" /></p>
 <p>1-layer就是目标节点的邻居</p>
 <p>2-layer就是目标节点邻居的邻居</p>
 <p>3-layer就是目标节点邻居的邻居的邻居</p>
 <p><em>层数越多，感受野越大。感受野这个词还是挺形象的</em></p>
-<h3 id="2-4-举个例子"><a href="#2-4-举个例子" class="headerlink" title="2.4 举个例子"></a>2.4 举个例子</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325155341547.png" alt="无自身信息的图卷积神经网络" style="zoom:80%;" /></p>
+<h3 id="2-4-举个例子"><a href="#2-4-举个例子" class="headerlink" title="2.4 举个例子"></a>2.4 举个例子</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325155341547.png" alt="图2.4.1 无自身信息的图卷积神经网络" style="zoom:80%;" /></p>
 <p>每个节点都是128*1的向量</p>
 <p>图卷积神经网络第一层：</p>
 <ul>
@@ -481,7 +481,7 @@ z_v=h_v^K\\</script><ul>
 <li>k+1层v节点的嵌入是由第k层邻域节点u算出来的。其实就是对k层节点求平均后输入到卷积神经网络，经过非线性激活，得到k+1层嵌入。这是一个递归的过程。</li>
 <li>假设这个卷积神经网络只有两层，K=2，就以第二层v节点的z作为最后的输出的embedding。</li>
 </ul>
-<h3 id="3-2-矩阵表示"><a href="#3-2-矩阵表示" class="headerlink" title="3.2 矩阵表示"></a>3.2 矩阵表示</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325164450391.png" alt="矩阵表示的每一步解释" style="zoom:70%;" /></p>
+<h3 id="3-2-矩阵表示"><a href="#3-2-矩阵表示" class="headerlink" title="3.2 矩阵表示"></a>3.2 矩阵表示</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325164450391.png" alt="图3.2.1 矩阵表示的每一步解释" style="zoom:70%;" /></p>
 <ul>
 <li><p>第k层所有的嵌入为$H^{(k)}=[h_1^{(k)}…h_{|V|}^{(k)}]^T$，在这个大矩阵中，每个节点的嵌入就是其中一行。</p>
 </li>
@@ -492,7 +492,7 @@ z_v=h_v^K\\</script><ul>
 <li><p>$D^{-1}A$是Row Normalized Matrix，<strong>最大特征值为1</strong>。</p>
 </li>
 </ul>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325170802811.png" alt="计算$A_{row}$的一个例子" style="zoom:80%;" /></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230325170802811.png" alt="图3.2.2 计算$A_{row}$的一个例子" style="zoom:80%;" /></p>
 <p>$A_{row}=D^{-1}A$的特点：</p>
 <ul>
 <li>$A_{row}$是一个非对称矩阵</li>
@@ -501,6 +501,7 @@ z_v=h_v^K\\</script><ul>
 <li>只按照自己的度，对所有渠道来的信息强行求平均</li>
 <li>没有考虑对方的连接数</li>
 </ul>
+<p><em>因此，使用</em>$D^{-1}A$计算权重不太科学。</p>
 
                 
             </div>
