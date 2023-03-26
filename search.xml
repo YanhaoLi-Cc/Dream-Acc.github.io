@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>hello2</title>
+      <link href="/2023/03/26/hello2/"/>
+      <url>/2023/03/26/hello2/</url>
+      
+        <content type="html"><![CDATA[<h3 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Deep Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hello2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GCN</title>
       <link href="/2023/03/25/gcn/"/>
       <url>/2023/03/25/gcn/</url>
