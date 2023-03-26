@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>post</title>
+      <title>两数之和</title>
       <link href="/2023/03/26/leetcode/liang-shu-zhi-he/"/>
       <url>/2023/03/26/leetcode/liang-shu-zhi-he/</url>
       
@@ -99,9 +99,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> GRU </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
@@ -126,9 +126,9 @@
       
         <tags>
             
-            <tag> LSTM </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> LSTM </tag>
             
         </tags>
       
