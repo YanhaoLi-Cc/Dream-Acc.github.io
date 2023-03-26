@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="两数之和, Dream-Acc">
+    <meta name="keywords" content="两数之和 LC1, Dream-Acc">
     <meta name="description" content="返回两数之和数组下标">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>两数之和 | Dream-Acc</title>
+    <title>两数之和 LC1 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">两数之和</h1>
+                    <h1 class="description center-align post-title">两数之和 LC1</h1>
                 </div>
             </div>
         </div>
@@ -447,31 +447,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 $nums$ 和一个整数目标值$target$，请你在该数组中找出和为目标值$target$的那两个整数，并返回它们的数组下标。</p>
+                <h1 id="LeetCode1-两数之和"><a href="#LeetCode1-两数之和" class="headerlink" title="LeetCode1 两数之和"></a>LeetCode1 两数之和</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 $nums$ 和一个整数目标值$target$，请你在该数组中找出和为目标值$target$的那两个整数，并返回它们的数组下标。</p>
 <p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
 <p>你可以按任意顺序返回答案。</p>
 <p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum">https://leetcode.cn/problems/two-sum</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230326151410087.png" alt="" style="zoom:80%;"></p>
 <p>利用哈希表，查找x = target - nums[i]，如果此时这个x在哈希表中，证明查找成功。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {
-public:
-    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
-    // unordered_map 无序哈希表    
-    unordered_map&lt;int, int&gt; hashtable;
-    for (int i = 0; i &lt; nums.size(); i++) {
-        int x = target - nums[i];
-        auto it = hashtable.find(x);
-        if (it != hashtable.end()) {
-            return {it-&gt;second, i};
-            // it-&gt;second是对应的value
-        }
-        // key是nums[i]的值
-        // value是数组对应下标
-        hashtable[nums[i]] = i;
-    }
-    return {};
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// unordered_map 无序哈希表    </span>
+    unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> hashtable<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> it <span class="token operator">=</span> hashtable<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">!=</span> hashtable<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span>it<span class="token operator">-&gt;</span>second<span class="token punctuation">,</span> i<span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token comment">// it-&gt;second是对应的value</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// key是nums[i]的值</span>
+        <span class="token comment">// value是数组对应下标</span>
+        hashtable<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间复杂度为$O(N)$</p>
 <p>空间复杂度为$O(N)$</p>
 <h3 id="C-unordered-map容器的成员方法"><a href="#C-unordered-map容器的成员方法" class="headerlink" title="C++ unordered_map容器的成员方法"></a>C++ unordered_map容器的成员方法</h3><div class="table-container">
@@ -659,30 +659,29 @@ public:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/26/leetcode/liang-shu-zhi-he/">
+                <a href="/2023/03/26/leetcode/liang-shu-xiang-jia/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="两数之和">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="两数相加 LC2">
                         
-                        <span class="card-title">两数之和</span>
+                        <span class="card-title">两数相加 LC2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            返回两数之和数组下标
+                            两个链表对应求和
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -695,7 +694,6 @@ public:
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -703,12 +701,12 @@ public:
                         <span class="chip bg-color">LeetCode100</span>
                     </a>
                     
-                    <a href="/tags/AC/">
-                        <span class="chip bg-color">AC</span>
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
                     </a>
                     
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
                     </a>
                     
                 </div>
@@ -964,7 +962,7 @@ public:
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">4.4k</span>
+                        class="white-color">4.9k</span>
             
             
             
