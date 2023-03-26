@@ -8,7 +8,7 @@
       <link href="/2023/03/26/leetcode/liang-shu-zhi-he/"/>
       <url>/2023/03/26/leetcode/liang-shu-zhi-he/</url>
       
-        <content type="html"><![CDATA[<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 $nums$ 和一个整数目标值$target$，请你在该数组中找出和为目标值$target$的那两个整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode.cn/problems/two-sum">https://leetcode.cn/problems/two-sum</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230326151410087.png" alt="image-20230326151410087" style="zoom:80%;"></p><p>利用哈希表，查找x = target - nums[i]，如果此时这个x在哈希表中，证明查找成功。</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {    // unordered_map 无序哈希表        unordered_map&lt;int, int&gt; hashtable;    for (int i = 0; i &lt; nums.size(); i++) {        int x = target - nums[i];        auto it = hashtable.find(x);        if (it != hashtable.end()) {            return {it-&gt;second, i};            // it-&gt;second是对应的value        }        // key是nums[i]的值        // value是数组对应下标        hashtable[nums[i]] = i;    }    return {};    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>时间复杂度为$O(N)$</p><p>空间复杂度为$O(N)$</p><h3 id="C-unordered-map容器的成员方法"><a href="#C-unordered-map容器的成员方法" class="headerlink" title="C++ unordered_map容器的成员方法"></a>C++ unordered_map容器的成员方法</h3><div class="table-container"><table><thead><tr><th>begin()</th><th>返回指向容器中第一个键值对的正向迭代器。</th></tr></thead><tbody><tr><td>end()</td><td>返回指向容器中最后一个键值对之后位置的正向迭代器。</td></tr><tr><td>size()</td><td>返回当前容器中存有键值对的个数。</td></tr><tr><td>max_size()</td><td>返回容器所能容纳键值对的最大个数，不同的操作系统，其返回值亦不相同。</td></tr><tr><td>find(key)</td><td>查找以 key 为键的键值对，如果找到，则返回一个指向该键值对的正向迭代器；反之，则返回一个指向容器中最后一个键值对之后位置的迭代器（如果 end() 方法返回的迭代器）。</td></tr><tr><td>at(key)</td><td>返回容器中存储的键 key 对应的值，如果 key 不存在，则会抛出 out_of_range 异常。</td></tr></tbody></table></div><p><a href="http://c.biancheng.net/view/7231.html">C++ STL unordered_map容器用法详解 (biancheng.net)</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 $nums$ 和一个整数目标值$target$，请你在该数组中找出和为目标值$target$的那两个整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode.cn/problems/two-sum">https://leetcode.cn/problems/two-sum</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230326151410087.png" alt="" style="zoom:80%;"></p><p>利用哈希表，查找x = target - nums[i]，如果此时这个x在哈希表中，证明查找成功。</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {    // unordered_map 无序哈希表        unordered_map&lt;int, int&gt; hashtable;    for (int i = 0; i &lt; nums.size(); i++) {        int x = target - nums[i];        auto it = hashtable.find(x);        if (it != hashtable.end()) {            return {it-&gt;second, i};            // it-&gt;second是对应的value        }        // key是nums[i]的值        // value是数组对应下标        hashtable[nums[i]] = i;    }    return {};    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>时间复杂度为$O(N)$</p><p>空间复杂度为$O(N)$</p><h3 id="C-unordered-map容器的成员方法"><a href="#C-unordered-map容器的成员方法" class="headerlink" title="C++ unordered_map容器的成员方法"></a>C++ unordered_map容器的成员方法</h3><div class="table-container"><table><thead><tr><th>begin()</th><th>返回指向容器中第一个键值对的正向迭代器。</th></tr></thead><tbody><tr><td>end()</td><td>返回指向容器中最后一个键值对之后位置的正向迭代器。</td></tr><tr><td>size()</td><td>返回当前容器中存有键值对的个数。</td></tr><tr><td>max_size()</td><td>返回容器所能容纳键值对的最大个数，不同的操作系统，其返回值亦不相同。</td></tr><tr><td>find(key)</td><td>查找以 key 为键的键值对，如果找到，则返回一个指向该键值对的正向迭代器；反之，则返回一个指向容器中最后一个键值对之后位置的迭代器（如果 end() 方法返回的迭代器）。</td></tr><tr><td>at(key)</td><td>返回容器中存储的键 key 对应的值，如果 key 不存在，则会抛出 out_of_range 异常。</td></tr></tbody></table></div><p><a href="http://c.biancheng.net/view/7231.html">C++ STL unordered_map容器用法详解 (biancheng.net)</a></p>]]></content>
       
       
       <categories>
@@ -23,6 +23,8 @@
             <tag> LeetCode100 </tag>
             
             <tag> AC </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -99,9 +101,9 @@
       
         <tags>
             
-            <tag> GRU </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> GRU </tag>
             
         </tags>
       
@@ -126,9 +128,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> LSTM </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
