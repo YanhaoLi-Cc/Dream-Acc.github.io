@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>对称二叉树 LC101</title>
+      <link href="/2023/04/03/leetcode/dui-cheng-er-cha-shu/"/>
+      <url>/2023/04/03/leetcode/dui-cheng-er-cha-shu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LeetCode101"><a href="#LeetCode101" class="headerlink" title="LeetCode101"></a>LeetCode101</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个二叉树的根节点 <code>root</code> ， 检查它是否轴对称。</p><p><strong>示例 1：</strong></p><p><img src="https://assets.leetcode.com/uploads/2021/02/19/symtree1.jpg" alt="img" style="zoom:50%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：root = [1,2,2,3,4,4,3]输出：true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>示例 2：</strong></p><p><img src="https://assets.leetcode.com/uploads/2021/02/19/symtree2.jpg" alt="img" style="zoom:50%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：root = [1,2,2,null,3,null,3]输出：false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>提示：</strong></p><ul><li>树中节点数目在范围 <code>[1, 1000]</code> 内</li><li><code>-100 &lt;= Node.val &lt;= 100</code></li></ul><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/** * Definition for a binary tree node. * struct TreeNode { *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode() : val(0), left(nullptr), right(nullptr) {} *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> left<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>left<span class="token punctuation">)</span>            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span>right <span class="token operator">&amp;&amp;</span> left<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span>            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> left<span class="token operator">-&gt;</span>val <span class="token operator">==</span> right<span class="token operator">-&gt;</span>val <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>left<span class="token operator">-&gt;</span>left<span class="token punctuation">,</span> right<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>left<span class="token operator">-&gt;</span>right<span class="token punctuation">,</span> right<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">bool</span> <span class="token function">isSymmetric</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://leetcode.cn/problems/symmetric-tree/">https://leetcode.cn/problems/symmetric-tree/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode100 </tag>
+            
+            <tag> AC </tag>
+            
+            <tag> Easy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树的中序遍历 LC94</title>
       <link href="/2023/04/03/leetcode/er-cha-shu-de-zhong-xu-bian-li/"/>
       <url>/2023/04/03/leetcode/er-cha-shu-de-zhong-xu-bian-li/</url>
@@ -302,9 +331,9 @@
       
         <tags>
             
-            <tag> GRU </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> GRU </tag>
             
         </tags>
       
@@ -329,9 +358,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> LSTM </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
