@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>买卖股票的最佳时机 LC121</title>
+      <link href="/2023/04/03/leetcode/mai-mai-gu-piao-de-zui-jia-shi-ji/"/>
+      <url>/2023/04/03/leetcode/mai-mai-gu-piao-de-zui-jia-shi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LeetCode121-买卖股票的最佳时机"><a href="#LeetCode121-买卖股票的最佳时机" class="headerlink" title="LeetCode121 买卖股票的最佳时机"></a>LeetCode121 买卖股票的最佳时机</h1><p><em>立足当时</em></p><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。</p><p>你只能选择某一天买入这只股票，并选择在 未来的某一个不同的日子卖出该股票。设计一个算法来计算你所能获取的最大利润。</p><p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p><p><strong>示例 1：</strong></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：[7,1,5,3,6,4]输出：5解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p><strong>示例 2：</strong></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：prices = [7,6,4,3,1]输出：0解释：在这种情况下, 没有交易完成, 所以最大利润为 0。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>提示：</strong></p><ul><li><code>1 &lt;= prices.length &lt;= 10^5</code></li><li><code>0 &lt;= prices[i] &lt;= 10^4</code></li></ul><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> maxPro <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> minprice <span class="token operator">=</span> <span class="token number">1e9</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> price <span class="token operator">:</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>            maxPro <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>maxPro<span class="token punctuation">,</span> price <span class="token operator">-</span> minprice<span class="token punctuation">)</span><span class="token punctuation">;</span>            minprice <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>minprice<span class="token punctuation">,</span> price<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> maxPro<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/">https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode100 </tag>
+            
+            <tag> AC </tag>
+            
+            <tag> Easy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树的最大深度 LC104</title>
       <link href="/2023/04/03/leetcode/er-cha-shu-de-zui-da-shen-du/"/>
       <url>/2023/04/03/leetcode/er-cha-shu-de-zui-da-shen-du/</url>
@@ -360,9 +389,9 @@
       
         <tags>
             
-            <tag> GRU </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> GRU </tag>
             
         </tags>
       
@@ -387,9 +416,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> LSTM </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
