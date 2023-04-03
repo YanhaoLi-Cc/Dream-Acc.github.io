@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LSTM, Dream-Acc">
-    <meta name="description" content="忘掉过去状态，尽量去看现在的输入数据;不看现在的输入数据，尽量去看前一个的状态。">
+    <meta name="keywords" content="无重复字符的最长子串, Dream-Acc">
+    <meta name="description" content="不含有重复字符的最长子串的长度">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LSTM | Dream-Acc</title>
+    <title>无重复字符的最长子串 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LSTM</h1>
+                    <h1 class="description center-align post-title">无重复字符的最长子串</h1>
                 </div>
             </div>
         </div>
@@ -365,12 +365,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LSTM/">
-                                <span class="chip bg-color">LSTM</span>
+                            <a href="/tags/LeetCode100/">
+                                <span class="chip bg-color">LeetCode100</span>
                             </a>
                         
-                            <a href="/tags/Deep-Learning/">
-                                <span class="chip bg-color">Deep Learning</span>
+                            <a href="/tags/AC/">
+                                <span class="chip bg-color">AC</span>
+                            </a>
+                        
+                            <a href="/tags/Medium/">
+                                <span class="chip bg-color">Medium</span>
                             </a>
                         
                     </div>
@@ -381,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Deep-Learning/" class="post-category">
-                                Deep Learning
+                            <a href="/categories/LeetCode100/" class="post-category">
+                                LeetCode100
                             </a>
                         
                     </div>
@@ -394,28 +398,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-26
+                    2023-04-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-26
+                    2023-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    639
+                    414
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -443,41 +447,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LSTM-长短期记忆网络"><a href="#LSTM-长短期记忆网络" class="headerlink" title="LSTM 长短期记忆网络"></a>LSTM 长短期记忆网络</h1><p><strong>长期以来，隐变量模型存在着长期信息保存和短期输入缺失的问题。</strong> </p>
-<p>解决这一问题的最早方法之一是长短期存储器（long short-term memory，LSTM）。</p>
-<h2 id="1-实现效果"><a href="#1-实现效果" class="headerlink" title="1. 实现效果"></a>1. 实现效果</h2><ul>
-<li><p>忘掉过去状态，尽量去看现在的输入数据</p>
-</li>
-<li><p>不看现在的输入数据，尽量去看前一个的状态</p>
-</li>
-</ul>
-<h2 id="2-模型组成"><a href="#2-模型组成" class="headerlink" title="2. 模型组成"></a>2. 模型组成</h2><h3 id="2-1门控记忆单元"><a href="#2-1门控记忆单元" class="headerlink" title="2.1门控记忆单元"></a>2.1门控记忆单元</h3><p>可以说，长短期记忆网络的设计灵感来自于计算机的逻辑门。</p>
-<p>长短期记忆网络引入了<strong>记忆元</strong>，或简称为单元（cell）。有些文献认为记忆元是隐状态的一种特殊类型，它们与隐状态具有相同的形状，其<strong>设计目的是用于记录附加的信息</strong>。</p>
-<p>为了控制记忆元，我们需要许多门。<strong>其中一个门用来从单元中输出条目，我们将其称为输出门（output gate）。另外一个门用来决定何时将数据读入单元，我们将其称为输入门（input gate）。</strong></p>
-<p>我们还需要一种机制来<strong>重置单元的内容，由遗忘门（forget gate）来管理</strong>， 这种设计的动机与门控循环单元相同，能够通过专用机制决定什么时候记忆或忽略隐状态中的输入。</p>
+                <h1 id="LeetCode3-无重复字符的最长子串"><a href="#LeetCode3-无重复字符的最长子串" class="headerlink" title="LeetCode3 无重复字符的最长子串"></a>LeetCode3 无重复字符的最长子串</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p><strong>示例 1:</strong></p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入: s = "abcabcbb"
+输出: 3 
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>示例 2:</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入: s = "bbbbb"
+输出: 1
+解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>示例 3:</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入: s = "pwwkew"
+输出: 3
+解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>提示：</strong></p>
 <ul>
-<li><p>遗忘门：将值朝0减少</p>
-</li>
-<li><p>输入门：决定不是忽略掉输入数据</p>
-</li>
-<li><p>输出门：决定是不是使用隐状态</p>
-</li>
+<li><code>0 &lt;= s.length &lt;= 5 * 10^4</code></li>
+<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
 </ul>
-<h3 id="2-2输入门、忘记门和输出门"><a href="#2-2输入门、忘记门和输出门" class="headerlink" title="2.2输入门、忘记门和输出门"></a>2.2输入门、忘记门和输出门</h3><p>就如在门控循环单元中一样， 当前时间步的输入和前一个时间步的隐状态作为数据送入长短期记忆网络的门中， 如图所示。它们由三个具有sigmoid激活函数的全连接层处理，以计算输入门、遗忘门和输出门的值。因此，这三个门的值都在(0,1)的范围内。</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230322113226798.png" alt="" style="zoom:80%;"></p>
-<p><strong>长短期记忆网络的数学表达。</strong></p>
-<p>假设有$ℎ$个隐藏单元，批量大小为$n$，输入数为$d$。 </p>
-<p>输入为$X_t \in \mathbb {R}^{n*d}$</p>
-<p>前一时间步的隐状态为$H_{t-1} \in \mathbb {R}^{n*h}$。 </p>
-<p>相应地，时间步$t$的门被定义如下：</p>
-<p>输入门是$I_t \in \mathbb {R}^{n*h}$ </p>
-<p>遗忘门是$F_t \in \mathbb {R}^{n*h}$</p>
-<p> 输出门是$O_t \in \mathbb {R}^{n*h}$。</p>
-<p>它们的计算方法如下：</p>
-<script type="math/tex; mode=display">
-I_t=\alpha(X_tW_{xi}+H_{t-1}W_{hi}+b_i)\\
-F_t=\alpha(X_tW_{xf}+H_{t-1}W_{hf}+b_f)\\
-O_t=\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\\ \tag{2.2.1}</script>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>使用滑动窗口</p>
+<p>时间复杂度：$O(N)$</p>
+<p>空间复杂度：$O(∣Σ∣)$，$∣Σ∣$表示字符集的大小</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 哈希集合，记录每个字符是否出现过</span>
+        unordered_set<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">&gt;</span> lookup<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动</span>
+        <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> maxStr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// 枚举左指针的位置，初始值隐性地表示为 -1</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 左指针向右移动一格，移除一个字符</span>
+                lookup<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 判断此时第rk+1个字符是否存在于哈希表中，并且没有超出边界</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>lookup<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 不断地移动右指针</span>
+                lookup<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                right<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">int</span> curStr <span class="token operator">=</span> right <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token comment">// 第 i 到 right 个字符是一个极长的无重复字符子串</span>
+            maxStr <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>maxStr<span class="token punctuation">,</span> curStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> maxStr<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">https://leetcode.cn/problems/longest-substring-without-repeating-characters/</a></p>
+
                 
             </div>
             <hr/>
@@ -503,7 +523,7 @@ O_t=\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\\ \tag{2.2.1}</script>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/03/26/lstm/">https://dream-acc.github.io/2023/03/26/lstm/</a>
+                    <a href="https://dream-acc.github.io/2023/04/03/leetcode/wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">https://dream-acc.github.io/2023/04/03/leetcode/wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -541,12 +561,16 @@ O_t=\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\\ \tag{2.2.1}</script>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LSTM/">
-                                    <span class="chip bg-color">LSTM</span>
+                                <a href="/tags/LeetCode100/">
+                                    <span class="chip bg-color">LeetCode100</span>
                                 </a>
                             
-                                <a href="/tags/Deep-Learning/">
-                                    <span class="chip bg-color">Deep Learning</span>
+                                <a href="/tags/AC/">
+                                    <span class="chip bg-color">AC</span>
+                                </a>
+                            
+                                <a href="/tags/Medium/">
+                                    <span class="chip bg-color">Medium</span>
                                 </a>
                             
                         </div>
@@ -625,88 +649,36 @@ O_t=\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\\ \tag{2.2.1}</script>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/03/26/gru/">
+                <a href="/2023/04/03/leetcode/wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="GRU">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="无重复字符的最长子串">
                         
-                        <span class="card-title">GRU</span>
+                        <span class="card-title">无重复字符的最长子串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            不是每个观察值都同等重要。通过门控单元，选择重要的内容，忘记不重要的内容。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Deep-Learning/" class="post-category">
-                                    Deep Learning
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Deep-Learning/">
-                        <span class="chip bg-color">Deep Learning</span>
-                    </a>
-                    
-                    <a href="/tags/GRU/">
-                        <span class="chip bg-color">GRU</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/03/26/lstm/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="LSTM">
-                        
-                        <span class="card-title">LSTM</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            忘掉过去状态，尽量去看现在的输入数据;不看现在的输入数据，尽量去看前一个的状态。
+                            不含有重复字符的最长子串的长度
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Deep-Learning/" class="post-category">
-                                    Deep Learning
+                            <a href="/categories/LeetCode100/" class="post-category">
+                                    LeetCode100
                                 </a>
                             
                             
@@ -717,12 +689,69 @@ O_t=\alpha(X_tW_{xo}+H_{t-1}W_{ho}+b_o)\\ \tag{2.2.1}</script>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LSTM/">
-                        <span class="chip bg-color">LSTM</span>
+                    <a href="/tags/LeetCode100/">
+                        <span class="chip bg-color">LeetCode100</span>
                     </a>
                     
-                    <a href="/tags/Deep-Learning/">
-                        <span class="chip bg-color">Deep Learning</span>
+                    <a href="/tags/AC/">
+                        <span class="chip bg-color">AC</span>
+                    </a>
+                    
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/03/26/lun-wen-list/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="论文List">
+                        
+                        <span class="card-title">论文List</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            链接预测的一些论文
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Link-Prediction/" class="post-category">
+                                    Link Prediction
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Graph-Learning/">
+                        <span class="chip bg-color">Graph Learning</span>
+                    </a>
+                    
+                    <a href="/tags/Link-Prediction/">
+                        <span class="chip bg-color">Link Prediction</span>
                     </a>
                     
                 </div>
