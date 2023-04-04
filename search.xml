@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>环形链表 LC141</title>
+      <link href="/2023/04/04/leetcode/huan-xing-lian-biao/"/>
+      <url>/2023/04/04/leetcode/huan-xing-lian-biao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LeetCode141-环形链表"><a href="#LeetCode141-环形链表" class="headerlink" title="LeetCode141 环形链表"></a>LeetCode141 环形链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 <code>head</code> ，判断链表中是否有环。</p><p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：<code>pos</code> 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p><p>如果链表中存在环 ，则返回 <code>true</code> 。 否则，返回 <code>false</code> 。</p><p><strong>示例 1：</strong></p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" alt="img" style="zoom:50%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>示例 2：</strong></p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png" alt="img" style="zoom:67%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [1,2], pos = 0输出：true解释：链表中有一个环，其尾部连接到第一个节点。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>示例 3：</strong></p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test3.png" alt="img" style="zoom:67%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [1], pos = -1输出：false解释：链表中没有环。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>时间复杂度$O(N)$，其中N是链表中的节点数</p><p>空间复杂度$O(N)$，其中N是链表中的节点数</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>        unordered_set<span class="token operator">&lt;</span>ListNode<span class="token operator">*</span><span class="token operator">&gt;</span> hashtable<span class="token punctuation">;</span>        <span class="token keyword">while</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>hashtable<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            hashtable<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>            head <span class="token operator">=</span> head <span class="token operator">-&gt;</span> next<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://leetcode.cn/problems/linked-list-cycle/">https://leetcode.cn/problems/linked-list-cycle/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode100 </tag>
+            
+            <tag> AC </tag>
+            
+            <tag> Easy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>只出现一次的数字 LC136</title>
       <link href="/2023/04/04/leetcode/zhi-chu-xian-yi-ci-de-shu-zi/"/>
       <url>/2023/04/04/leetcode/zhi-chu-xian-yi-ci-de-shu-zi/</url>
