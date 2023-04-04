@@ -418,9 +418,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> GRU </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
@@ -445,9 +445,9 @@
       
         <tags>
             
-            <tag> LSTM </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> LSTM </tag>
             
         </tags>
       
