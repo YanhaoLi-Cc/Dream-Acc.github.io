@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Link Prediction Dataset</title>
+      <link href="/2023/04/06/link-prediction-dataset/"/>
+      <url>/2023/04/06/link-prediction-dataset/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Link-Prediction-Dataset"><a href="#Link-Prediction-Dataset" class="headerlink" title="Link Prediction Dataset"></a>Link Prediction Dataset</h1><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p><p><a href="http://vlado.fmf.uni-lj.si/pub/networks/data/">http://vlado.fmf.uni-lj.si/pub/networks/data/</a></p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a> 有六个标准数据集用作LInk Prediction</p><ol><li><p>USAir</p><p>1987年美国的航空交通情况 332节点 2126边 无节点属性</p><p><a href="http://vlado.fmf.uni-lj.si/pub/networks/pajek/data/gphs.htm">Graph Files (uni-lj.si)</a></p></li><li><p>Coauthorships in network science</p><p>共同作者网络 1589 节点和 2742 边 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p><p>介绍：<a href="https://studentwork.prattsi.org/infovis/visualization/coauthorship-network-science/">Coauthorship in Network Science – Information Visualization (prattsi.org)</a></p></li><li><p>Political blogs</p><p>美国政治博客之间的超链接网络 有向图 包含1490个结点和19090条边 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p></li><li><p>Yeast</p><p>预测蛋白质的细胞定位位点 无节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/Yeast">https://archive.ics.uci.edu/ml/datasets/Yeast</a></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230406164418143.png" alt="" style="zoom:50%;"></p></li><li><p>Power</p><p>美国西部各州电网拓扑结构的无向、未加权网络 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p></li><li><p>Rocketfuel</p><p>ISP 拓扑映射 无节点属性</p><p><a href="https://research.cs.washington.edu/networking/rocketfuel/">https://research.cs.washington.edu/networking/rocketfuel/</a></p></li><li><p>E.coli</p><p>336种大肠杆菌蛋白质被分为8类，里面包含蛋白质定位位点 无节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/ecoli">https://archive.ics.uci.edu/ml/datasets/ecoli</a></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230406170608849.png" alt="" style="zoom:50%;"></p></li><li><p>Cora</p><p><a href="http://www.cs.umd.edu/~sen/lbc-proj/LBC.html">http://www.cs.umd.edu/~sen/lbc-proj/LBC.html</a> </p><p>包含2708篇科学出版物， 5429条边，总共7种类别，引文网络由 5429 个链接组成。有节点属性</p></li><li><p>Citeseer</p><p>包含 3312 份科学出版物，分为六类之一，引文网络由 4732 个链接组成。 有节点属性</p></li><li><p>WebKB</p><p><a href="http://www.cs.cmu.edu/~webkb/">http://www.cs.cmu.edu/~webkb/</a></p><p>包含 877 份科学出版物，分为五类之一，引文网络由 1608 个链接组成。有节点属性</p><p>Wisconsin、Cornell、Texas子集</p></li><li><p>Pubmed</p><p>生物医学方面的论文搜寻以及摘要，包含了19717篇糖尿病相关的科学出版物，这些出版物被分成三个类别。 这些出版物的互相引用网络包含了44338条边。有节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups">https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups</a></p></li><li><p>ppa</p><p>蛋白质关系网络 无向、无加权的图</p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p></li><li><p>ddi</p><p>药物相互作用网络 同构、无加权、无向图</p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Link Prediction </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Link Prediction </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树的直径 LC543</title>
       <link href="/2023/04/06/leetcode/er-cha-shu-zhi-jing/"/>
       <url>/2023/04/06/leetcode/er-cha-shu-zhi-jing/</url>
@@ -592,9 +617,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> GRU </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
@@ -619,9 +644,9 @@
       
         <tags>
             
-            <tag> LSTM </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> LSTM </tag>
             
         </tags>
       
