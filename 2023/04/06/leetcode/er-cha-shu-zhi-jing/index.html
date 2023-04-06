@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="合并两个有序链表 LC21, Dream-Acc">
-    <meta name="description" content="将两个升序链表合并为一个新的 升序 链表并返回">
+    <meta name="keywords" content="二叉树的直径 LC543, Dream-Acc">
+    <meta name="description" content="一棵二叉树的直径长度是任意两个结点路径长度中的最大值">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>合并两个有序链表 LC21 | Dream-Acc</title>
+    <title>二叉树的直径 LC543 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">合并两个有序链表 LC21</h1>
+                    <h1 class="description center-align post-title">二叉树的直径 LC543</h1>
                 </div>
             </div>
         </div>
@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-03
+                    2023-04-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-03
+                    2023-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    245
+                    276
                 </div>
                 
 
@@ -447,56 +447,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode21-合并两个有序链表"><a href="#LeetCode21-合并两个有序链表" class="headerlink" title="LeetCode21 合并两个有序链表"></a>LeetCode21 合并两个有序链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<p><strong>示例 1：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：l1 = [1,2,4], l2 = [1,3,4]
-输出：[1,1,2,3,4,4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>示例 2：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：l1 = [], l2 = []
-输出：[]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>示例 3：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：l1 = [], l2 = [0]
-输出：[0]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="迭代求解"><a href="#迭代求解" class="headerlink" title="迭代求解"></a>迭代求解</h3><p>时间复杂度：$O(n+m)$，其中n和m分别为两个链表的长度</p>
-<p>空间复杂度：$O(1)$</p>
+                <h1 id="LeetCode543-二叉树直径"><a href="#LeetCode543-二叉树直径" class="headerlink" title="LeetCode543 二叉树直径"></a>LeetCode543 二叉树直径</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。</p>
+<p><strong>示例 :</strong><br>给定二叉树</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">    1
+   / \
+  2   3
+ / \     
+4   5    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。</p>
+<p>注意：两结点之间的路径长度是以它们之间边的数目表示。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>时间复杂度：$O(N)$，其中 N为二叉树的节点数，即遍历一棵二叉树的时间复杂度。</p>
+<p>空间复杂度：$O(height)$其中$height$为二叉树的高度。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/**
- * Definition for singly-linked list.
- * struct ListNode {
+ * Definition for a binary tree node.
+ * struct TreeNode {
  *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    ListNode<span class="token operator">*</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> l1<span class="token punctuation">,</span> ListNode<span class="token operator">*</span> l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode<span class="token operator">*</span> preHead <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ListNode<span class="token operator">*</span> pre <span class="token operator">=</span> preHead<span class="token punctuation">;</span>
-
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> <span class="token keyword">nullptr</span> <span class="token operator">&amp;&amp;</span> l2 <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token operator">-&gt;</span>val <span class="token operator">&lt;</span> l2<span class="token operator">-&gt;</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                pre<span class="token operator">-&gt;</span>next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
-                l1 <span class="token operator">=</span> l1<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                pre<span class="token operator">-&gt;</span>next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
-                l2 <span class="token operator">=</span> l2<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            pre <span class="token operator">=</span> pre<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> 
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            pre<span class="token operator">-&gt;</span>next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            pre<span class="token operator">-&gt;</span>next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">return</span> preHead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">diameterOfBinaryTree</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-sorted-lists/">https://leetcode.cn/problems/merge-two-sorted-lists/</a></p>
+    <span class="token keyword">int</span> <span class="token function">depth</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> L <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>node <span class="token operator">-&gt;</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> R <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>node <span class="token operator">-&gt;</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>L <span class="token operator">+</span> R<span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">max</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span> R<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/diameter-of-binary-tree/">https://leetcode.cn/problems/diameter-of-binary-tree/</a></p>
 
                 
             </div>
@@ -523,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/04/03/leetcode/he-bing-liang-ge-you-xu-lian-biao/">https://dream-acc.github.io/2023/04/03/leetcode/he-bing-liang-ge-you-xu-lian-biao/</a>
+                    <a href="https://dream-acc.github.io/2023/04/06/leetcode/er-cha-shu-zhi-jing/">https://dream-acc.github.io/2023/04/06/leetcode/er-cha-shu-zhi-jing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -649,29 +639,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/03/leetcode/pa-lou-ti/">
+                <a href="/2023/04/06/leetcode/er-cha-shu-zhi-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="爬楼梯 LC70">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二叉树的直径 LC543">
                         
-                        <span class="card-title">爬楼梯 LC70</span>
+                        <span class="card-title">二叉树的直径 LC543</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            需要背下来的爬楼梯
+                            一棵二叉树的直径长度是任意两个结点路径长度中的最大值
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -684,6 +675,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -710,24 +702,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/03/leetcode/you-xiao-de-gua-hao/">
+                <a href="/2023/04/06/leetcode/fan-zhuan-er-cha-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="有效的括号 LC20">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="翻转二叉树 LC226">
                         
-                        <span class="card-title">有效的括号 LC20</span>
+                        <span class="card-title">翻转二叉树 LC226</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串s，判断字符串是否有效
+                            翻转二叉树，并返回其根节点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-06
                             </span>
                         <span class="publish-author">
                             
