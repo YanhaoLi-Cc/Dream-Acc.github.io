@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>回文链表 LC234</title>
+      <link href="/2023/04/06/leetcode/hui-wen-lian-biao/"/>
+      <url>/2023/04/06/leetcode/hui-wen-lian-biao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LeetCode234-回文链表"><a href="#LeetCode234-回文链表" class="headerlink" title="LeetCode234 回文链表"></a>LeetCode234 回文链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。</p><p><strong>示例 1：</strong></p><p><img src="https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg" alt="img" style="zoom: 80%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [1,2,2,1]输出：true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>示例 2：</strong></p><p><img src="https://assets.leetcode.com/uploads/2021/03/03/pal2linked-list.jpg" alt="img" style="zoom:80%;"></p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [1,2]输出：false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>提示：</strong></p><ul><li>链表中节点数目在范围<code>[1, 10^5]</code> 内</li><li><code>0 &lt;= Node.val &lt;= 9</code></li></ul><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode() : val(0), next(nullptr) {} *     ListNode(int x) : val(x), next(nullptr) {} *     ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">bool</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> set<span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>            set<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>            head <span class="token operator">=</span> head <span class="token operator">-&gt;</span> next<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">int</span> n <span class="token operator">=</span> set<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">,</span> j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>set<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> set<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://leetcode.cn/problems/palindrome-linked-list/">https://leetcode.cn/problems/palindrome-linked-list/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode100 </tag>
+            
+            <tag> AC </tag>
+            
+            <tag> Easy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Link Prediction Dataset</title>
       <link href="/2023/04/06/link-prediction-dataset/"/>
       <url>/2023/04/06/link-prediction-dataset/</url>
@@ -174,7 +203,7 @@
     
     
     <entry>
-      <title>PaperList</title>
+      <title>Paper List</title>
       <link href="/2023/04/05/paperlist/"/>
       <url>/2023/04/05/paperlist/</url>
       
@@ -617,9 +646,9 @@
       
         <tags>
             
-            <tag> GRU </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> GRU </tag>
             
         </tags>
       
@@ -644,9 +673,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> LSTM </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
