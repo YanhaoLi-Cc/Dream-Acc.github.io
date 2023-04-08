@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="反转链表 LC206, Dream-Acc">
-    <meta name="description" content="返回反转后的链表">
+    <meta name="keywords" content="将有序数组转换为二叉搜索树 LC108, Dream-Acc">
+    <meta name="description" content="将有序数组转换为BST">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>反转链表 LC206 | Dream-Acc</title>
+    <title>将有序数组转换为二叉搜索树 LC108 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">反转链表 LC206</h1>
+                    <h1 class="description center-align post-title">将有序数组转换为二叉搜索树 LC108</h1>
                 </div>
             </div>
         </div>
@@ -377,6 +377,10 @@
                                 <span class="chip bg-color">Easy</span>
                             </a>
                         
+                            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                                <span class="chip bg-color">二叉树</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -398,21 +402,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-06
+                    2023-04-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-06
+                    2023-04-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    186
+                    285
                 </div>
                 
 
@@ -447,50 +451,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode206-反转链表"><a href="#LeetCode206-反转链表" class="headerlink" title="LeetCode206 反转链表"></a>LeetCode206 反转链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。</p>
-<p><strong>示例 1：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [1,2,3,4,5]
-输出：[5,4,3,2,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>示例 2：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = [1,2]
-输出：[2,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>示例 3：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：head = []
-输出：[]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>提示：</p>
-<ul>
-<li>链表中节点的数目范围是 [0, 5000]</li>
-</ul>
-<ul>
-<li>-5000 &lt;= Node.val &lt;= 5000</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>时间复杂度：$O(N)$，N是链表长度</p>
-<p>空间复杂度：$O(1)$</p>
+                <h1 id="LeetCode108-将有序数组转换为二叉搜索树"><a href="#LeetCode108-将有序数组转换为二叉搜索树" class="headerlink" title="LeetCode108 将有序数组转换为二叉搜索树"></a>LeetCode108 将有序数组转换为二叉搜索树</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 <strong>高度平衡</strong> 二叉搜索树。</p>
+<p><strong>高度平衡</strong> 二叉树是一棵满足<code>每个节点的左右两个子树的高度差的绝对值不超过 1</code>的二叉树。</p>
+<p>示例 1：</p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/18/btree1.jpg" alt="" style="zoom:67%;"></p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：nums = [-10,-3,0,5,9]
+输出：[0,-3,9,-10,null,5]
+解释：[0,-10,5,null,-3,null,9] 也将被视为正确答案：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><strong>递归求解</strong></p>
+<p>时间复杂度：$O(n)$，n是数组长度</p>
+<p>空间复杂度：$O(logn)$，n是数组长度</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/**
- * Definition for singly-linked list.
- * struct ListNode {
+ * Definition for a binary tree node.
+ * struct TreeNode {
  *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    ListNode<span class="token operator">*</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode<span class="token operator">*</span> prev <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
-        ListNode<span class="token operator">*</span> curr <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>curr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            ListNode<span class="token operator">*</span> next <span class="token operator">=</span> curr <span class="token operator">-&gt;</span> next<span class="token punctuation">;</span>
-            curr <span class="token operator">-&gt;</span> next <span class="token operator">=</span> prev<span class="token punctuation">;</span>
-            prev <span class="token operator">=</span> curr<span class="token punctuation">;</span>
-            curr <span class="token operator">=</span> next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> 
-        <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
+    TreeNode<span class="token operator">*</span> <span class="token function">sortedArrayToBST</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">arrayToBSTHelper</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/">https://leetcode.cn/problems/reverse-linked-list/</a></p>
+    TreeNode<span class="token operator">*</span> <span class="token function">arrayToBSTHelper</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>left <span class="token operator">&gt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        TreeNode<span class="token operator">*</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TreeNode</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root <span class="token operator">-&gt;</span> right <span class="token operator">=</span> <span class="token function">arrayToBSTHelper</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root <span class="token operator">-&gt;</span> left <span class="token operator">=</span> <span class="token function">arrayToBSTHelper</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/">https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/</a></p>
 
                 
             </div>
@@ -517,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/04/06/leetcode/fan-zhuan-lian-biao/">https://dream-acc.github.io/2023/04/06/leetcode/fan-zhuan-lian-biao/</a>
+                    <a href="https://dream-acc.github.io/2023/04/08/leetcode/jiang-you-xu-shu-zu-zhuan-huan-wei-er-cha-sou-suo-shu/">https://dream-acc.github.io/2023/04/08/leetcode/jiang-you-xu-shu-zu-zhuan-huan-wei-er-cha-sou-suo-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,6 +563,10 @@
                             
                                 <a href="/tags/Easy/">
                                     <span class="chip bg-color">Easy</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                                    <span class="chip bg-color">二叉树</span>
                                 </a>
                             
                         </div>
@@ -643,29 +645,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/06/leetcode/fan-zhuan-er-cha-shu/">
+                <a href="/2023/04/08/leetcode/jiang-you-xu-shu-zu-zhuan-huan-wei-er-cha-sou-suo-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="翻转二叉树 LC226">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="将有序数组转换为二叉搜索树 LC108">
                         
-                        <span class="card-title">翻转二叉树 LC226</span>
+                        <span class="card-title">将有序数组转换为二叉搜索树 LC108</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            翻转二叉树，并返回其根节点
+                            将有序数组转换为BST
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -678,6 +681,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -693,6 +697,10 @@
                         <span class="chip bg-color">Easy</span>
                     </a>
                     
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                        <span class="chip bg-color">二叉树</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -704,24 +712,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/05/leetcode/duo-shu-yuan-su/">
+                <a href="/2023/04/08/leetcode/yang-hui-san-jiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="多数元素 LC169">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="杨辉三角 LC118">
                         
-                        <span class="card-title">多数元素 LC169</span>
+                        <span class="card-title">杨辉三角 LC118</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            多数元素是指在数组中出现次数大于⌊n/2⌋的元素
+                            返回杨辉三角
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-08
                             </span>
                         <span class="publish-author">
                             
@@ -748,6 +756,10 @@
                     
                     <a href="/tags/Easy/">
                         <span class="chip bg-color">Easy</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
