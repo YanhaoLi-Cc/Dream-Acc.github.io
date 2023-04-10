@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二叉树的最大深度 LC104, Dream-Acc">
-    <meta name="description" content="给定一个二叉树，找出其最大深度">
+    <meta name="keywords" content="盛最多水的容器 LC11, Dream-Acc">
+    <meta name="description" content="返回容器可以储存的最大水量。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二叉树的最大深度 LC104 | Dream-Acc</title>
+    <title>盛最多水的容器 LC11 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二叉树的最大深度 LC104</h1>
+                    <h1 class="description center-align post-title">盛最多水的容器 LC11</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,12 @@
                                 <span class="chip bg-color">AC</span>
                             </a>
                         
-                            <a href="/tags/Easy/">
-                                <span class="chip bg-color">Easy</span>
+                            <a href="/tags/Medium/">
+                                <span class="chip bg-color">Medium</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">双指针</span>
                             </a>
                         
                     </div>
@@ -398,21 +402,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-03
+                    2023-04-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-03
+                    2023-04-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    211
+                    368
                 </div>
                 
 
@@ -447,38 +451,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode104-二叉树的最大深度"><a href="#LeetCode104-二叉树的最大深度" class="headerlink" title="LeetCode104 二叉树的最大深度"></a>LeetCode104 二叉树的最大深度</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个二叉树，找出其最大深度。</p>
-<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
-<p>说明: 叶子节点是指没有子节点的节点。</p>
-<p>示例：<br>给定二叉树 <code>[3,9,20,null,null,15,7]</code></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">  3
- / \
-9  20
-  /  \
- 15   7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><p>时间复杂度：$O(N)$，其中N为二叉树节点的个数。</p>
-<p>空间复杂度：$O(height)$，其中height表示二叉树的高度。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+                <h1 id="LeetCode11-盛最多水的容器"><a href="#LeetCode11-盛最多水的容器" class="headerlink" title="LeetCode11 盛最多水的容器"></a>LeetCode11 盛最多水的容器</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个长度为 n 的整数数组 height 。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i]) 。</p>
+<p>找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p>返回容器可以储存的最大水量。</p>
+<p>说明：你不能倾斜容器。</p>
+<p><strong>示例 1：</strong></p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：[1,8,6,2,5,4,8,3,7]
+输出：49 
+解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>示例 2：</strong></p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：height = [1,1]
+输出：1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == height.length</code></li>
+<li><code>2 &lt;= n &lt;= 10^5</code></li>
+<li><code>0 &lt;= height[i] &lt;= 10^4</code></li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><ol>
+<li>初始化：双指针i，j分列水槽左右两端；</li>
+<li>循环收窄： 直至双指针相遇时跳出；<ol>
+<li>更新面积最大值 res ；</li>
+<li><strong>选定两板高度中的短板</strong>，向中间收窄一格；</li>
+</ol>
+</li>
+<li>返回值： 返回面积最大值 res 即可；</li>
+</ol>
+<p>计算公式：$S(i,j)=min(h[i],h[j])×(j−i)$</p>
+<p>时间复杂度：$O(N)$，双指针遍历一边底边宽度</p>
+<p>空间复杂度：$O(1)$，变量占用的额外空间。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">maxArea</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> maxar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> height<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            maxar <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>maxar<span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>j<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> 
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> 
+                j<span class="token operator">--</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> maxar<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-depth-of-binary-tree">https://leetcode.cn/problems/maximum-depth-of-binary-tree</a></p>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water">https://leetcode.cn/problems/container-with-most-water</a></p>
 
                 
             </div>
@@ -505,7 +521,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/04/03/leetcode/er-cha-shu-de-zui-da-shen-du/">https://dream-acc.github.io/2023/04/03/leetcode/er-cha-shu-de-zui-da-shen-du/</a>
+                    <a href="https://dream-acc.github.io/2023/04/11/leetcode/sheng-zui-duo-shui-de-rong-qi/">https://dream-acc.github.io/2023/04/11/leetcode/sheng-zui-duo-shui-de-rong-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,8 +567,12 @@
                                     <span class="chip bg-color">AC</span>
                                 </a>
                             
-                                <a href="/tags/Easy/">
-                                    <span class="chip bg-color">Easy</span>
+                                <a href="/tags/Medium/">
+                                    <span class="chip bg-color">Medium</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">双指针</span>
                                 </a>
                             
                         </div>
@@ -631,29 +651,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/03/leetcode/mai-mai-gu-piao-de-zui-jia-shi-ji/">
+                <a href="/2023/04/11/leetcode/sheng-zui-duo-shui-de-rong-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="买卖股票的最佳时机 LC121">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="盛最多水的容器 LC11">
                         
-                        <span class="card-title">买卖股票的最佳时机 LC121</span>
+                        <span class="card-title">盛最多水的容器 LC11</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            设计一个算法来计算能获取的最大利润。
+                            返回容器可以储存的最大水量。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -666,6 +687,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -677,8 +699,12 @@
                         <span class="chip bg-color">AC</span>
                     </a>
                     
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
                     </a>
                     
                 </div>
@@ -692,24 +718,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/03/leetcode/dui-cheng-er-cha-shu/">
+                <a href="/2023/04/10/leetcode/zui-chang-lian-xu-xu-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="对称二叉树 LC101">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="最长连续序列 LC128">
                         
-                        <span class="card-title">对称二叉树 LC101</span>
+                        <span class="card-title">最长连续序列 LC128</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            检查二叉树是否轴对称。
+                            找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
                             </span>
                         <span class="publish-author">
                             
@@ -734,8 +760,12 @@
                         <span class="chip bg-color">AC</span>
                     </a>
                     
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%93%88%E5%B8%8C/">
+                        <span class="chip bg-color">哈希</span>
                     </a>
                     
                 </div>
