@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, Dream-Acc">
-    <meta name="description" content="Dream-Acc">
+    <meta name="keywords" content="机器学习基础知识, Dream-Acc">
+    <meta name="description" content="机器学习的相关基础知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签 | Dream-Acc</title>
+    <title>机器学习基础知识 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -332,253 +332,513 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器学习基础知识</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
     <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Dream-Acc在努力生活
-                
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Machine-Learning/">
+                                <span class="chip bg-color">Machine Learning</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Machine-Learning/" class="post-category">
+                                Machine Learning
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
 
-            <div class="description center-align">
+            <div class="post-info">
                 
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "坠欢莫拾，酒痕在衣",
-                            
-                                "Ready for combat",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-11
+                </div>
                 
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    479
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="机器学习基础知识"><a href="#机器学习基础知识" class="headerlink" title="机器学习基础知识"></a>机器学习基础知识</h1><h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411151958668.png" alt="混淆矩阵" style="zoom:80%;"></p>
+<script type="math/tex; mode=display">
+TPRate=\frac{TP}{TP+FN} \\
+FPRate=\frac{FP}{FP+TN}</script><ul>
+<li>$TPRate$就是$TP$除以$TP$所在的列，$FPRate$就是$FP$除以$FP$所在的列</li>
+<li>$TPRate$的意义是所有真实类别为1的样本中，预测类别为1的比例。</li>
+<li>$FPRate$的意义是所有真实类别为0的样本中，预测类别为1的比例。</li>
+</ul>
+<h3 id="ROC曲线与AUC"><a href="#ROC曲线与AUC" class="headerlink" title="ROC曲线与AUC"></a>ROC曲线与AUC</h3><p>按照定义，AUC即ROC曲线下的面积，而ROC曲线的横轴是$FPRate$，纵轴是$TPRate$，当二者相等时，即$y=x$，如下图。表示的意义是：对于不论真实类别是1还是0的样本，分类器预测为1的概率是相等的。换句话说，分类器对于正例和负例毫无区分能力。</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411152427293.png" alt="AUC" style="zoom:67%;"></p>
+<p>而我们希望分类器达到的效果是：对于真实类别为1的样本，分类器预测为1的概率（即$TPRate$），要大于真实类别为0而预测类别为1的概率（即$FPRate$），即$y＞x$，因此大部分的ROC曲线长成下面这个样子：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411152645404.png" alt="合理的ROC曲线" style="zoom:67%;"></p>
+<p>最理想的情况下，$TPRate$一直为1，$FPRate$一直为0，AUC为1，这便是AUC的极大值。</p>
+<p>对于硬分类器（例如SVM，NB），预测类别为离散标签，对于8个样本的预测情况如下：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153140055.png" alt="" style="zoom:67%;"></p>
+<p>得到混淆矩阵如下：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153218035.png" alt="" style="zoom:67%;"></p>
+<p>进而算得$TPRate=3/4$，$FPRate=2/4$，得到ROC曲线：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153252381.png" alt="image-20230411153252381" style="zoom:67%;"></p>
+<p>最终得到AUC为0.625。</p>
+<p>最后说说AUC的优势，AUC的计算方法同时考虑了分类器对于正例和负例的分类能力，在样本不平衡的情况下，依然能够对分类器作出合理的评价。</p>
+<p>例如在反欺诈场景，设欺诈类样本为正例，正例占比很少（假设0.1%），如果使用准确率评估，把所有的样本预测为负例，便可以获得<strong>99.9%的准确率</strong>。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Yanhao Li</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://dream-acc.github.io/2023/04/11/ji-qi-xue-xi-ji-chu-zhi-shi/">https://dream-acc.github.io/2023/04/11/ji-qi-xue-xi-ji-chu-zhi-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Yanhao Li</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--  -->
-<!-- <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
- -->
 <script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/aryal.jpg)');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
-    </div>
-</div>
 
-<main class="content">
+            
+        </div>
+    </div>
 
     
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Link-Prediction/" title="Link Prediction: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Link Prediction" style="background-color: #F9EBEA;">Link Prediction
-                        <span class="tag-length">2</span>
-                    </span>
+            <div class="card">
+                <a href="/2023/04/11/ji-qi-xue-xi-ji-chu-zhi-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="机器学习基础知识">
+                        
+                        <span class="card-title">机器学习基础知识</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            机器学习的相关基础知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Machine-Learning/" class="post-category">
+                                    Machine Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
-                
-                <a href="/tags/GCN/" title="GCN: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="GCN" style="background-color: #F5EEF8;">GCN
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Graph-Learning/" title="Graph Learning: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Graph Learning" style="background-color: #D5F5E3;">Graph Learning
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Hello/" title="Hello: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Hello" style="background-color: #E8F8F5;">Hello
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/GRU/" title="GRU: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="GRU" style="background-color: #FEF9E7;">GRU
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Deep-Learning/" title="Deep Learning: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Deep Learning" style="background-color: #F8F9F9;">Deep Learning
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/LSTM/" title="LSTM: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="LSTM" style="background-color: #82E0AA;">LSTM
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/LeetCode100/" title="LeetCode100: 25">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="LeetCode100" style="background-color: #D7BDE2;">LeetCode100
-                        <span class="tag-length">25</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/AC/" title="AC: 24">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="AC" style="background-color: #A3E4D7;">AC
-                        <span class="tag-length">24</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Easy/" title="Easy: 20">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Easy" style="background-color: #85C1E9;">Easy
-                        <span class="tag-length">20</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%93%BE%E8%A1%A8/" title="链表: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="链表" style="background-color: #F8C471;">链表
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Medium/" title="Medium: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Medium" style="background-color: #F9E79F;">Medium
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%93%88%E5%B8%8C/" title="哈希: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="哈希" style="background-color: #85C1E9;">哈希
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="二叉树" style="background-color: #D5F5E3;">二叉树
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" title="双指针: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="双指针" style="background-color: #D5F5E3;">双指针
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="动态规划" style="background-color: #F8C471;">动态规划
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Machine-Learning/" title="Machine Learning: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Machine Learning" style="background-color: #D7BDE2;">Machine Learning
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
                 
             </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/11/leetcode/sheng-zui-duo-shui-de-rong-qi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="盛最多水的容器 LC11">
+                        
+                        <span class="card-title">盛最多水的容器 LC11</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            返回容器可以储存的最大水量。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LeetCode100/" class="post-category">
+                                    LeetCode100
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LeetCode100/">
+                        <span class="chip bg-color">LeetCode100</span>
+                    </a>
+                    
+                    <a href="/tags/AC/">
+                        <span class="chip bg-color">AC</span>
+                    </a>
+                    
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
-    
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
+<!-- TOC 悬浮按钮. -->
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
 
-    $('#tag-wordcloud').jQCloud([{"text":"Link Prediction","weight":2,"link":"/tags/Link-Prediction/"},{"text":"GCN","weight":1,"link":"/tags/GCN/"},{"text":"Graph Learning","weight":2,"link":"/tags/Graph-Learning/"},{"text":"Hello","weight":1,"link":"/tags/Hello/"},{"text":"GRU","weight":1,"link":"/tags/GRU/"},{"text":"Deep Learning","weight":2,"link":"/tags/Deep-Learning/"},{"text":"LSTM","weight":1,"link":"/tags/LSTM/"},{"text":"LeetCode100","weight":25,"link":"/tags/LeetCode100/"},{"text":"AC","weight":24,"link":"/tags/AC/"},{"text":"Easy","weight":20,"link":"/tags/Easy/"},{"text":"链表","weight":1,"link":"/tags/链表/"},{"text":"Medium","weight":5,"link":"/tags/Medium/"},{"text":"哈希","weight":2,"link":"/tags/哈希/"},{"text":"二叉树","weight":1,"link":"/tags/二叉树/"},{"text":"双指针","weight":2,"link":"/tags/双指针/"},{"text":"动态规划","weight":1,"link":"/tags/动态规划/"},{"text":"Machine Learning","weight":1,"link":"/tags/Machine-Learning/"}], {
-        autoResize: true
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
     });
 </script>
 
     
 
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
