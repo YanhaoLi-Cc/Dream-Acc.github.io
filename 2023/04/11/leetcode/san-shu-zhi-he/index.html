@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="对称二叉树 LC101, Dream-Acc">
-    <meta name="description" content="检查二叉树是否轴对称。">
+    <meta name="keywords" content="三数之和 LC15, Dream-Acc">
+    <meta name="description" content="返回所有和为 0 且不重复的三元组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>对称二叉树 LC101 | Dream-Acc</title>
+    <title>三数之和 LC15 | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">对称二叉树 LC101</h1>
+                    <h1 class="description center-align post-title">三数之和 LC15</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,12 @@
                                 <span class="chip bg-color">AC</span>
                             </a>
                         
-                            <a href="/tags/Easy/">
-                                <span class="chip bg-color">Easy</span>
+                            <a href="/tags/Medium/">
+                                <span class="chip bg-color">Medium</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">双指针</span>
                             </a>
                         
                     </div>
@@ -398,28 +402,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-03
+                    2023-04-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-03
+                    2023-04-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    190
+                    535
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -447,45 +451,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode101"><a href="#LeetCode101" class="headerlink" title="LeetCode101"></a>LeetCode101</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个二叉树的根节点 <code>root</code> ， 检查它是否轴对称。</p>
+                <h1 id="LeetCode15-三数之和"><a href="#LeetCode15-三数之和" class="headerlink" title="LeetCode15 三数之和"></a>LeetCode15 三数之和</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个整数数组 nums ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请你返回所有和为 0 且不重复的三元组。</p>
+<p>注意：答案中不可以包含重复的三元组。</p>
 <p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/symtree1.jpg" alt="" style="zoom:50%;"></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：root = [1,2,2,3,4,4,3]
-输出：true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：nums = [-1,0,1,2,-1,-4]
+输出：[[-1,-1,2],[-1,0,1]]
+解释：
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
+不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+注意，输出的顺序和三元组的顺序并不重要。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>示例 2：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/symtree2.jpg" alt="" style="zoom:50%;"></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：root = [1,2,2,null,3,null,3]
-输出：false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：nums = [0,1,1]
+输出：[]
+解释：唯一可能的三元组和不为 0 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>提示：</strong></p>
 <ul>
-<li>树中节点数目在范围 <code>[1, 1000]</code> 内</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+<li><code>3 &lt;= nums.length &lt;= 3000</code></li>
+<li><code>-10^5 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>先对数组进行排序。第一层是对a的遍历，第二层左指针是对b的遍历，右指针是对c的遍历。</p>
+<p>当我们需要枚举数组中的两个元素时，如果我们发现随着第一个元素的递增，第二个元素是递减的，那么就可以使用双指针的方法，将枚举的时间复杂度从$O(N^2)$ 减少至$O(N)$</p>
+<p>时间复杂度：$O(N^2)$，<em>N</em> 是数组 $nums$ 的长度</p>
+<p>空间复杂度：$O(logN)$</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> left<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>left<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span>right <span class="token operator">&amp;&amp;</span> left<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> left<span class="token operator">-&gt;</span>val <span class="token operator">==</span> right<span class="token operator">-&gt;</span>val <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>left<span class="token operator">-&gt;</span>left<span class="token punctuation">,</span> right<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>left<span class="token operator">-&gt;</span>right<span class="token punctuation">,</span> right<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">threeSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> ans<span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> first <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> first <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> first<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 如果之前遍历过a 跳过</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>first<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>first <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">// 右指针</span>
+            <span class="token keyword">int</span> third <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> target <span class="token operator">=</span> <span class="token operator">-</span>nums<span class="token punctuation">[</span>first<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 左指针</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> second <span class="token operator">=</span> first <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> second <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> second<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 如果之前遍历过b 跳过</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">&gt;</span> first <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>second <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">while</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>third<span class="token punctuation">]</span> <span class="token operator">&gt;</span> target <span class="token operator">&amp;&amp;</span> second <span class="token operator">&lt;</span> third<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    third<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token comment">// 如果指针重合，随着 b 后续的增加</span>
+                <span class="token comment">// 就不会有满足 a+b+c=0 并且 b&lt;c 的 c 了，可以退出循环</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">==</span> third<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>third<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    ans<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>nums<span class="token punctuation">[</span>first<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>third<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">bool</span> <span class="token function">isSymmetric</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/symmetric-tree/">https://leetcode.cn/problems/symmetric-tree/</a></p>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">https://leetcode.cn/problems/3sum/</a></p>
 
                 
             </div>
@@ -512,7 +544,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/04/03/leetcode/dui-cheng-er-cha-shu/">https://dream-acc.github.io/2023/04/03/leetcode/dui-cheng-er-cha-shu/</a>
+                    <a href="https://dream-acc.github.io/2023/04/11/leetcode/san-shu-zhi-he/">https://dream-acc.github.io/2023/04/11/leetcode/san-shu-zhi-he/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -558,8 +590,12 @@
                                     <span class="chip bg-color">AC</span>
                                 </a>
                             
-                                <a href="/tags/Easy/">
-                                    <span class="chip bg-color">Easy</span>
+                                <a href="/tags/Medium/">
+                                    <span class="chip bg-color">Medium</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">双指针</span>
                                 </a>
                             
                         </div>
@@ -638,85 +674,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/03/leetcode/er-cha-shu-de-zui-da-shen-du/">
+                <a href="/2023/04/11/leetcode/san-shu-zhi-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="二叉树的最大深度 LC104">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="三数之和 LC15">
                         
-                        <span class="card-title">二叉树的最大深度 LC104</span>
+                        <span class="card-title">三数之和 LC15</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            给定一个二叉树，找出其最大深度
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/LeetCode100/" class="post-category">
-                                    LeetCode100
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/LeetCode100/">
-                        <span class="chip bg-color">LeetCode100</span>
-                    </a>
-                    
-                    <a href="/tags/AC/">
-                        <span class="chip bg-color">AC</span>
-                    </a>
-                    
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/04/03/leetcode/er-cha-shu-de-zhong-xu-bian-li/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="二叉树的中序遍历 LC94">
-                        
-                        <span class="card-title">二叉树的中序遍历 LC94</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            给定一个二叉树的根节点 root，返回它的中序遍历
+                            返回所有和为 0 且不重复的三元组
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
                             </span>
                         <span class="publish-author">
                             
@@ -730,6 +710,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -741,8 +722,61 @@
                         <span class="chip bg-color">AC</span>
                     </a>
                     
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/11/ji-qi-xue-xi-ji-chu-zhi-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="机器学习基础知识">
+                        
+                        <span class="card-title">机器学习基础知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            机器学习的相关基础知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Machine-Learning/" class="post-category">
+                                    Machine Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>
