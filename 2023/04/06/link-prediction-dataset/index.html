@@ -397,21 +397,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-11
+                    2023-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    507
+                    771
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -439,7 +439,87 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Link-Prediction-Dataset"><a href="#Link-Prediction-Dataset" class="headerlink" title="Link Prediction Dataset"></a>Link Prediction Dataset</h1><p><a target="_blank" rel="noopener" href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p>
+                <h1 id="Link-Prediction-Dataset"><a href="#Link-Prediction-Dataset" class="headerlink" title="Link Prediction Dataset"></a>Link Prediction Dataset</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>规模</th>
+<th>数据集名称</th>
+<th>节点</th>
+<th>边数</th>
+<th>同质图</th>
+<th>无权</th>
+<th>无向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small</td>
+<td>ogbl-ddi</td>
+<td>4267</td>
+<td>1,334,889</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>Small</td>
+<td>ogbl-collab</td>
+<td>235,868</td>
+<td>1,285,465</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>Small</td>
+<td>ogbl-biokg</td>
+<td>93773</td>
+<td>5088434</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>ogbl-ppa</td>
+<td>576,289</td>
+<td>30,326,273</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>ogbl-citation2</td>
+<td>2,927,963</td>
+<td>30,561,187</td>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>ogbl-wikikg2</td>
+<td>2,500,604</td>
+<td>17,137,181</td>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>ogbl-vessel</td>
+<td>3,538,495</td>
+<td>5,345,897</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a target="_blank" rel="noopener" href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p>
 <p><a target="_blank" rel="noopener" href="http://vlado.fmf.uni-lj.si/pub/networks/data/">http://vlado.fmf.uni-lj.si/pub/networks/data/</a></p>
 <p><a target="_blank" rel="noopener" href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a> 有六个标准数据集用作LInk Prediction</p>
 <p><a target="_blank" rel="noopener" href="https://ogb.stanford.edu/docs/leader_linkprop/">https://ogb.stanford.edu/docs/leader_linkprop/</a> OGB数据集排行榜</p>
@@ -493,13 +573,37 @@
 </li>
 <li><p>ogbl-ppa</p>
 <p>576,289Nodes 30,326,273Edges </p>
-<p>蛋白质关系网络 无向、无权的图</p>
+<p>蛋白质关系网络 同构 无向、无权的图</p>
 <p><a target="_blank" rel="noopener" href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p>
 </li>
 <li><p>ogbl-ddi</p>
 <p>4,267Nodes 1,334,889Edges </p>
 <p>药物相互作用网络 同构、无权、无图</p>
 <p><a target="_blank" rel="noopener" href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p>
+</li>
+<li><p>ogbl-collab</p>
+<p>235,868Nodes 1,285,465Edges</p>
+<p>无向图 多重图（两点间可能存在多边）</p>
+<p>MAG 索引的作者之间的协作网络的子集</p>
+</li>
+<li><p>ogbl-citation2</p>
+<p>2,927,963Nodes 30,561,187Edges</p>
+<p>有向图 </p>
+<p>从 MAG [1] 中提取的论文子集之间的引用网络</p>
+</li>
+<li><p>ogbl-wikikg2</p>
+<p>维基数据知识库[1]中提取的知识图谱</p>
+<p>2,500,604Nodes 17,137,181Edges</p>
+</li>
+<li><p>ogbl-biokg</p>
+<p>知识图谱 </p>
+<p>93,773Nodes 5,088,434Edges</p>
+<p>疾病（10,687个节点）、蛋白质（17,499个）、药物（10,533个节点）、副作用（9,969个节点）和蛋白质功能（45,085个节点）</p>
+<p>有向边 </p>
+</li>
+<li><p>ogbl-vessel</p>
+<p>整个小鼠大脑的无向、未加权空间图</p>
+<p>3,538,495Nodes 5,345,897Edges</p>
 </li>
 </ol>
 
@@ -957,7 +1061,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.8k</span>
+                        class="white-color">13k</span>
             
             
             
