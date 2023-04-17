@@ -460,34 +460,33 @@
 <p>SGL的主要流程是：</p>
 <ol>
 <li><p>数据增强，生成多个视图</p>
-<ol>
+<ul>
 <li>Node Dropout</li>
-</ol>
+</ul>
 <p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215712660.png" alt="" style="zoom:67%;"></p>
-<ol>
+<ul>
 <li>Edge Dropout</li>
-</ol>
+</ul>
 <p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215833682.png" alt="" style="zoom:67%;"></p>
-<ol>
+<ul>
 <li><p>Random Walk</p>
 <p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215851241.png" alt="" style="zoom:67%;"></p>
 </li>
-</ol>
+</ul>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417221032274.png" alt="3层GCN中ED与RW的例子" style="zoom:67%;"></p>
 </li>
 <li><p>利用图编码，形成不同视图的节点Representation，在这些表征上做对比学习</p>
 <p>InfoNCE Loss</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215610873.png" alt="" style="zoom:67%;"></p>
+</li>
+<li><p>将传统的监督目标与对比学习监督目标相加，形成多目标学习范式</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215936196.png" alt="" style="zoom:80%;"></p>
+<p>item侧和user侧是对称的，同理得到item的损失函数，因此最终自监督的损失函数如下：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220222285.png" alt="" style="zoom:80%;"></p>
+<p>最终的损失函数：推荐系统常用的BPR-pairwise损失函数自监督结合起来做联合训练</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220017621.png" alt="" style="zoom:80%;"></p>
 </li>
 </ol>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215610873.png" alt="" style="zoom:67%;"></p>
-<ol>
-<li>将传统的监督目标与对比学习监督目标相加，形成多目标学习范式</li>
-</ol>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215936196.png" alt="" style="zoom:80%;"></p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220002073.png" alt="" style="zoom:67%;"></p>
-<p>​    item侧和user侧是对称的，同理得到item的损失函数，因此最终自监督的损失函数如下：</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220222285.png" alt="" style="zoom:80%;"></p>
-<p>​    最终的损失函数：推荐系统常用的BPR-pairwise损失函数自监督结合起来做联合训练</p>
-<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220017621.png" alt="" style="zoom:80%;"></p>
 
                 
             </div>
