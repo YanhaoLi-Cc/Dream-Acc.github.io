@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="只出现一次的数字 LC136, Dream-Acc">
-    <meta name="description" content="异或运算的案例">
+    <meta name="keywords" content="SGL, Dream-Acc">
+    <meta name="description" content="数据增强、对比学习">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>只出现一次的数字 LC136 | Dream-Acc</title>
+    <title>SGL | Dream-Acc</title>
     <link rel="icon" type="image/png" href="/aclight.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">只出现一次的数字 LC136</h1>
+                    <h1 class="description center-align post-title">SGL</h1>
                 </div>
             </div>
         </div>
@@ -365,16 +365,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/AC/">
-                                <span class="chip bg-color">AC</span>
+                            <a href="/tags/Graph-Learning/">
+                                <span class="chip bg-color">Graph Learning</span>
                             </a>
                         
-                            <a href="/tags/LeetCode100/">
-                                <span class="chip bg-color">LeetCode100</span>
+                            <a href="/tags/Deep-Learning/">
+                                <span class="chip bg-color">Deep Learning</span>
                             </a>
                         
-                            <a href="/tags/Easy/">
-                                <span class="chip bg-color">Easy</span>
+                            <a href="/tags/Self-supervised/">
+                                <span class="chip bg-color">Self-supervised</span>
                             </a>
                         
                     </div>
@@ -385,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LeetCode100/" class="post-category">
-                                LeetCode100
+                            <a href="/categories/Graph-Learning/" class="post-category">
+                                Graph Learning
                             </a>
                         
                     </div>
@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-04
+                    2023-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-04
+                    2023-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    215
+                    290
                 </div>
                 
 
@@ -447,35 +447,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode-136-只出现一次的数字"><a href="#LeetCode-136-只出现一次的数字" class="headerlink" title="LeetCode 136 只出现一次的数字"></a>LeetCode 136 只出现一次的数字</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个 非空 整数数组 <code>nums</code> ，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
-<p>你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。</p>
-<p><strong>示例 1 ：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：nums = [2,2,1]
-输出：1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>示例 2 ：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：nums = [4,1,2,1,2]
-输出：4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>示例 3 ：</strong></p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">输入：nums = [1]
-输出：1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>提示：</p>
+                <h1 id="Self-supervised-Graph-Learning-for-Recommendation"><a href="#Self-supervised-Graph-Learning-for-Recommendation" class="headerlink" title="Self-supervised Graph Learning for Recommendation"></a>Self-supervised Graph Learning for Recommendation</h1><h2 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1. Motivation"></a>1. Motivation</h2><p>解决目前基于user-item二分图表征学习的推荐系统面临的两大核心问题：</p>
+<ol>
+<li>流行度偏差：高度节点对表征学习的影响较大，恶化了低度项目的推荐</li>
+<li>鲁棒性问题：表征容易受到噪声交互的影响，因为邻域聚合方案进一步扩大了观察到的边缘的影响。</li>
+</ol>
+<h2 id="2-METHODOLOGY"><a href="#2-METHODOLOGY" class="headerlink" title="2. METHODOLOGY"></a>2. METHODOLOGY</h2><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417213410289.png" alt="SGL的整体框架"></p>
 <ul>
-<li>1 &lt;= nums.length &lt;= 3 * 10^4</li>
-<li>-3 * 10^4 &lt;= nums[i] &lt;= 3 * 10^4</li>
-<li>除了某个元素只出现一次以外，其余每个元素均出现两次。</li>
+<li>上层说明了主要监督学习任务的工作流程。</li>
+<li>下层显示了经过数据增强的图结构SSL任务工作流程。</li>
 </ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">singleNumber</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 异或运算</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            ans <span class="token operator">^=</span> num<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number/">https://leetcode.cn/problems/single-number/</a></p>
+<p>SGL的主要流程是：</p>
+<ol>
+<li><p>数据增强，生成多个视图</p>
+<ol>
+<li>Node Dropout</li>
+</ol>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215712660.png" alt="" style="zoom:67%;"></p>
+<ol>
+<li>Edge Dropout</li>
+</ol>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215833682.png" alt="" style="zoom:67%;"></p>
+<ol>
+<li><p>Random Walk</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215851241.png" alt="" style="zoom:67%;"></p>
+</li>
+</ol>
+</li>
+<li><p>利用图编码，形成不同视图的节点Representation，在这些表征上做对比学习</p>
+<p>InfoNCE Loss</p>
+</li>
+</ol>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215610873.png" alt="" style="zoom:67%;"></p>
+<ol>
+<li>将传统的监督目标与对比学习监督目标相加，形成多目标学习范式</li>
+</ol>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215936196.png" alt="" style="zoom:80%;"></p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220002073.png" alt="" style="zoom:67%;"></p>
+<p>​    item侧和user侧是对称的，同理得到item的损失函数，因此最终自监督的损失函数如下：</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220222285.png" alt="" style="zoom:80%;"></p>
+<p>​    最终的损失函数：推荐系统常用的BPR-pairwise损失函数自监督结合起来做联合训练</p>
+<p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220017621.png" alt="" style="zoom:80%;"></p>
 
                 
             </div>
@@ -502,7 +514,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dream-acc.github.io/2023/04/04/leetcode/zhi-chu-xian-yi-ci-de-shu-zi/">https://dream-acc.github.io/2023/04/04/leetcode/zhi-chu-xian-yi-ci-de-shu-zi/</a>
+                    <a href="https://dream-acc.github.io/2023/04/17/papers/sgl/">https://dream-acc.github.io/2023/04/17/papers/sgl/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -540,16 +552,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/AC/">
-                                    <span class="chip bg-color">AC</span>
+                                <a href="/tags/Graph-Learning/">
+                                    <span class="chip bg-color">Graph Learning</span>
                                 </a>
                             
-                                <a href="/tags/LeetCode100/">
-                                    <span class="chip bg-color">LeetCode100</span>
+                                <a href="/tags/Deep-Learning/">
+                                    <span class="chip bg-color">Deep Learning</span>
                                 </a>
                             
-                                <a href="/tags/Easy/">
-                                    <span class="chip bg-color">Easy</span>
+                                <a href="/tags/Self-supervised/">
+                                    <span class="chip bg-color">Self-supervised</span>
                                 </a>
                             
                         </div>
@@ -628,54 +640,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/04/leetcode/huan-xing-lian-biao/">
+                <a href="/2023/04/17/papers/sgl/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="环形链表 LC141">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="SGL">
                         
-                        <span class="card-title">环形链表 LC141</span>
+                        <span class="card-title">SGL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            判断是否存在环形链表
+                            数据增强、对比学习
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode100/" class="post-category">
-                                    LeetCode100
+                            <a href="/categories/Graph-Learning/" class="post-category">
+                                    Graph Learning
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/AC/">
-                        <span class="chip bg-color">AC</span>
+                    <a href="/tags/Graph-Learning/">
+                        <span class="chip bg-color">Graph Learning</span>
                     </a>
                     
-                    <a href="/tags/LeetCode100/">
-                        <span class="chip bg-color">LeetCode100</span>
+                    <a href="/tags/Deep-Learning/">
+                        <span class="chip bg-color">Deep Learning</span>
                     </a>
                     
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
+                    <a href="/tags/Self-supervised/">
+                        <span class="chip bg-color">Self-supervised</span>
                     </a>
                     
                 </div>
@@ -689,24 +703,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/03/leetcode/mai-mai-gu-piao-de-zui-jia-shi-ji/">
+                <a href="/2023/04/11/leetcode/san-shu-zhi-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="买卖股票的最佳时机 LC121">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="三数之和 LC15">
                         
-                        <span class="card-title">买卖股票的最佳时机 LC121</span>
+                        <span class="card-title">三数之和 LC15</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            设计一个算法来计算能获取的最大利润。
+                            返回所有和为 0 且不重复的三元组
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
                             </span>
                         <span class="publish-author">
                             
@@ -727,12 +741,16 @@
                         <span class="chip bg-color">AC</span>
                     </a>
                     
+                    <a href="/tags/Medium/">
+                        <span class="chip bg-color">Medium</span>
+                    </a>
+                    
                     <a href="/tags/LeetCode100/">
                         <span class="chip bg-color">LeetCode100</span>
                     </a>
                     
-                    <a href="/tags/Easy/">
-                        <span class="chip bg-color">Easy</span>
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
                     </a>
                     
                 </div>

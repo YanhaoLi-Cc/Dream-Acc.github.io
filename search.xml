@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>SGL</title>
+      <link href="/2023/04/17/papers/sgl/"/>
+      <url>/2023/04/17/papers/sgl/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Self-supervised-Graph-Learning-for-Recommendation"><a href="#Self-supervised-Graph-Learning-for-Recommendation" class="headerlink" title="Self-supervised Graph Learning for Recommendation"></a>Self-supervised Graph Learning for Recommendation</h1><h2 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1. Motivation"></a>1. Motivation</h2><p>解决目前基于user-item二分图表征学习的推荐系统面临的两大核心问题：</p><ol><li>流行度偏差：高度节点对表征学习的影响较大，恶化了低度项目的推荐</li><li>鲁棒性问题：表征容易受到噪声交互的影响，因为邻域聚合方案进一步扩大了观察到的边缘的影响。</li></ol><h2 id="2-METHODOLOGY"><a href="#2-METHODOLOGY" class="headerlink" title="2. METHODOLOGY"></a>2. METHODOLOGY</h2><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417213410289.png" alt="SGL的整体框架"></p><ul><li>上层说明了主要监督学习任务的工作流程。</li><li>下层显示了经过数据增强的图结构SSL任务工作流程。</li></ul><p>SGL的主要流程是：</p><ol><li><p>数据增强，生成多个视图</p><ol><li>Node Dropout</li></ol><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215712660.png" alt="" style="zoom:67%;"></p><ol><li>Edge Dropout</li></ol><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215833682.png" alt="" style="zoom:67%;"></p><ol><li><p>Random Walk</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215851241.png" alt="" style="zoom:67%;"></p></li></ol></li><li><p>利用图编码，形成不同视图的节点Representation，在这些表征上做对比学习</p><p>InfoNCE Loss</p></li></ol><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215610873.png" alt="" style="zoom:67%;"></p><ol><li>将传统的监督目标与对比学习监督目标相加，形成多目标学习范式</li></ol><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215936196.png" alt="" style="zoom:80%;"></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220002073.png" alt="" style="zoom:67%;"></p><p>​    item侧和user侧是对称的，同理得到item的损失函数，因此最终自监督的损失函数如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220222285.png" alt="" style="zoom:80%;"></p><p>​    最终的损失函数：推荐系统常用的BPR-pairwise损失函数自监督结合起来做联合训练</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220017621.png" alt="" style="zoom:80%;"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Graph Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Graph Learning </tag>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> Self-supervised </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>三数之和 LC15</title>
       <link href="/2023/04/11/leetcode/san-shu-zhi-he/"/>
       <url>/2023/04/11/leetcode/san-shu-zhi-he/</url>
@@ -39,7 +68,7 @@
       <link href="/2023/04/11/ji-qi-xue-xi-ji-chu-zhi-shi/"/>
       <url>/2023/04/11/ji-qi-xue-xi-ji-chu-zhi-shi/</url>
       
-        <content type="html"><![CDATA[<h1 id="机器学习基础知识"><a href="#机器学习基础知识" class="headerlink" title="机器学习基础知识"></a>机器学习基础知识</h1><h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411151958668.png" alt="混淆矩阵" style="zoom:80%;"></p><script type="math/tex; mode=display">TPRate=\frac{TP}{TP+FN} \\FPRate=\frac{FP}{FP+TN}</script><ul><li>$TPRate$就是$TP$除以$TP$所在的列，$FPRate$就是$FP$除以$FP$所在的列</li><li>$TPRate$的意义是所有真实类别为1的样本中，预测类别为1的比例。</li><li>$FPRate$的意义是所有真实类别为0的样本中，预测类别为1的比例。</li></ul><h3 id="ROC曲线与AUC"><a href="#ROC曲线与AUC" class="headerlink" title="ROC曲线与AUC"></a>ROC曲线与AUC</h3><p>按照定义，AUC即ROC曲线下的面积，而ROC曲线的横轴是$FPRate$，纵轴是$TPRate$，当二者相等时，即$y=x$，如下图。表示的意义是：对于不论真实类别是1还是0的样本，分类器预测为1的概率是相等的。换句话说，分类器对于正例和负例毫无区分能力。</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411152427293.png" alt="AUC" style="zoom:67%;"></p><p>而我们希望分类器达到的效果是：对于真实类别为1的样本，分类器预测为1的概率（即$TPRate$），要大于真实类别为0而预测类别为1的概率（即$FPRate$），即$y＞x$，因此大部分的ROC曲线长成下面这个样子：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411152645404.png" alt="合理的ROC曲线" style="zoom:67%;"></p><p>最理想的情况下，$TPRate$一直为1，$FPRate$一直为0，AUC为1，这便是AUC的极大值。</p><p>对于硬分类器（例如SVM，NB），预测类别为离散标签，对于8个样本的预测情况如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153140055.png" alt="" style="zoom:67%;"></p><p>得到混淆矩阵如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153218035.png" alt="" style="zoom:67%;"></p><p>进而算得$TPRate=3/4$，$FPRate=2/4$，得到ROC曲线：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153252381.png" alt="image-20230411153252381" style="zoom:67%;"></p><p>最终得到AUC为0.625。</p><p>最后说说AUC的优势，AUC的计算方法同时考虑了分类器对于正例和负例的分类能力，在样本不平衡的情况下，依然能够对分类器作出合理的评价。</p><p>例如在反欺诈场景，设欺诈类样本为正例，正例占比很少（假设0.1%），如果使用准确率评估，把所有的样本预测为负例，便可以获得<strong>99.9%的准确率</strong>。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="机器学习基础知识"><a href="#机器学习基础知识" class="headerlink" title="机器学习基础知识"></a>机器学习基础知识</h1><h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411151958668.png" alt="混淆矩阵" style="zoom:80%;"></p><script type="math/tex; mode=display">TPRate=\frac{TP}{TP+FN} \\FPRate=\frac{FP}{FP+TN}</script><ul><li>$TPRate$就是$TP$除以$TP$所在的列，$FPRate$就是$FP$除以$FP$所在的列</li><li>$TPRate$的意义是所有真实类别为1的样本中，预测类别为1的比例。</li><li>$FPRate$的意义是所有真实类别为0的样本中，预测类别为1的比例。</li></ul><h3 id="ROC曲线与AUC"><a href="#ROC曲线与AUC" class="headerlink" title="ROC曲线与AUC"></a>ROC曲线与AUC</h3><p>按照定义，AUC即ROC曲线下的面积，而ROC曲线的横轴是$FPRate$，纵轴是$TPRate$，当二者相等时，即$y=x$，如下图。表示的意义是：对于不论真实类别是1还是0的样本，分类器预测为1的概率是相等的。换句话说，分类器对于正例和负例毫无区分能力。</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411152427293.png" alt="AUC" style="zoom:67%;"></p><p>而我们希望分类器达到的效果是：对于真实类别为1的样本，分类器预测为1的概率（即$TPRate$），要大于真实类别为0而预测类别为1的概率（即$FPRate$），即$y＞x$，因此大部分的ROC曲线长成下面这个样子：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411152645404.png" alt="合理的ROC曲线" style="zoom:67%;"></p><p>最理想的情况下，$TPRate$一直为1，$FPRate$一直为0，AUC为1，这便是AUC的极大值。</p><p>对于硬分类器（例如SVM，NB），预测类别为离散标签，对于8个样本的预测情况如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153140055.png" alt="" style="zoom:67%;"></p><p>得到混淆矩阵如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153218035.png" alt="" style="zoom:67%;"></p><p>进而算得$TPRate=3/4$，$FPRate=2/4$，得到ROC曲线：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230411153252381.png" alt="" style="zoom:67%;"></p><p>最终得到AUC为0.625。</p><p>最后说说AUC的优势，AUC的计算方法同时考虑了分类器对于正例和负例的分类能力，在样本不平衡的情况下，依然能够对分类器作出合理的评价。</p><p>例如在反欺诈场景，设欺诈类样本为正例，正例占比很少（假设0.1%），如果使用准确率评估，把所有的样本预测为负例，便可以获得<strong>99.9%的准确率</strong>。</p>]]></content>
       
       
       <categories>
@@ -304,11 +333,11 @@
     
     
     <entry>
-      <title>Link Prediction Dataset</title>
+      <title>Link Prediction Datasets</title>
       <link href="/2023/04/06/link-prediction-dataset/"/>
       <url>/2023/04/06/link-prediction-dataset/</url>
       
-        <content type="html"><![CDATA[<h1 id="Link-Prediction-Dataset"><a href="#Link-Prediction-Dataset" class="headerlink" title="Link Prediction Dataset"></a>Link Prediction Dataset</h1><div class="table-container"><table><thead><tr><th>规模</th><th>数据集名称</th><th>节点</th><th>边数</th><th>同质图</th><th>无权</th><th>无向</th></tr></thead><tbody><tr><td>Small</td><td>ogbl-ddi</td><td>4267</td><td>1,334,889</td><td>T</td><td>T</td><td>T</td></tr><tr><td>Small</td><td>ogbl-collab</td><td>235,868</td><td>1,285,465</td><td>T</td><td>T</td><td>T</td></tr><tr><td>Small</td><td>ogbl-biokg</td><td>93773</td><td>5088434</td><td>F</td><td>F</td><td>F</td></tr><tr><td>Medium</td><td>ogbl-ppa</td><td>576,289</td><td>30,326,273</td><td>T</td><td>T</td><td>T</td></tr><tr><td>Medium</td><td>ogbl-citation2</td><td>2,927,963</td><td>30,561,187</td><td>T</td><td>T</td><td>F</td></tr><tr><td>Medium</td><td>ogbl-wikikg2</td><td>2,500,604</td><td>17,137,181</td><td>T</td><td>F</td><td>F</td></tr><tr><td>Medium</td><td>ogbl-vessel</td><td>3,538,495</td><td>5,345,897</td><td>T</td><td>T</td><td>T</td></tr></tbody></table></div><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p><p><a href="http://vlado.fmf.uni-lj.si/pub/networks/data/">http://vlado.fmf.uni-lj.si/pub/networks/data/</a></p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a> 有六个标准数据集用作LInk Prediction</p><p><a href="https://ogb.stanford.edu/docs/leader_linkprop/">https://ogb.stanford.edu/docs/leader_linkprop/</a> OGB数据集排行榜</p><ol><li><p>USAir</p><p>1987年美国的航空交通情况 332节点 2126边 无节点属性</p><p><a href="http://vlado.fmf.uni-lj.si/pub/networks/pajek/data/gphs.htm">Graph Files (uni-lj.si)</a></p></li><li><p>Coauthorships in network science</p><p>共同作者网络 1589 节点和 2742 边 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p><p>介绍：<a href="https://studentwork.prattsi.org/infovis/visualization/coauthorship-network-science/">Coauthorship in Network Science – Information Visualization (prattsi.org)</a></p></li><li><p>Political blogs</p><p>美国政治博客之间的超链接网络 有向图 包含1490个结点和19090条边 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p></li><li><p>Yeast</p><p>预测蛋白质的细胞定位位点 无节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/Yeast">https://archive.ics.uci.edu/ml/datasets/Yeast</a></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230406164418143.png" alt="" style="zoom:50%;"></p></li><li><p>Power</p><p>美国西部各州电网拓扑结构的无向、未加权网络 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p></li><li><p>Rocketfuel</p><p>ISP 拓扑映射 无节点属性</p><p><a href="https://research.cs.washington.edu/networking/rocketfuel/">https://research.cs.washington.edu/networking/rocketfuel/</a></p></li><li><p>E.coli</p><p>336种大肠杆菌蛋白质被分为8类，里面包含蛋白质定位位点 无节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/ecoli">https://archive.ics.uci.edu/ml/datasets/ecoli</a></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230406170608849.png" alt="" style="zoom:50%;"></p></li><li><p>Cora</p><p><a href="http://www.cs.umd.edu/~sen/lbc-proj/LBC.html">http://www.cs.umd.edu/~sen/lbc-proj/LBC.html</a> </p><p>包含2708篇科学出版物， 5429条边，总共7种类别，引文网络由 5429 个链接组成。有节点属性</p></li><li><p>Citeseer</p><p>包含 3312 份科学出版物，分为六类之一，引文网络由 4732 个链接组成。 有节点属性</p></li><li><p>WebKB</p><p><a href="http://www.cs.cmu.edu/~webkb/">http://www.cs.cmu.edu/~webkb/</a></p><p>包含 877 份科学出版物，分为五类之一，引文网络由 1608 个链接组成。有节点属性</p><p>Wisconsin、Cornell、Texas子集</p></li><li><p>Pubmed</p><p>生物医学方面的论文搜寻以及摘要，包含了19717篇糖尿病相关的科学出版物，这些出版物被分成三个类别。 这些出版物的互相引用网络包含了44338条边。有节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups">https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups</a></p></li><li><p>ogbl-ppa</p><p>576,289Nodes 30,326,273Edges </p><p>蛋白质关系网络 同构 无向、无权的图</p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p></li><li><p>ogbl-ddi</p><p>4,267Nodes 1,334,889Edges </p><p>药物相互作用网络 同构、无权、无图</p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p></li><li><p>ogbl-collab</p><p>235,868Nodes 1,285,465Edges</p><p>无向图 多重图（两点间可能存在多边）</p><p>MAG 索引的作者之间的协作网络的子集</p></li><li><p>ogbl-citation2</p><p>2,927,963Nodes 30,561,187Edges</p><p>有向图 </p><p>从 MAG [1] 中提取的论文子集之间的引用网络</p></li><li><p>ogbl-wikikg2</p><p>维基数据知识库[1]中提取的知识图谱</p><p>2,500,604Nodes 17,137,181Edges</p></li><li><p>ogbl-biokg</p><p>知识图谱 </p><p>93,773Nodes 5,088,434Edges</p><p>疾病（10,687个节点）、蛋白质（17,499个）、药物（10,533个节点）、副作用（9,969个节点）和蛋白质功能（45,085个节点）</p><p>有向边 </p></li><li><p>ogbl-vessel</p><p>整个小鼠大脑的无向、未加权空间图</p><p>3,538,495Nodes 5,345,897Edges</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="Link-Prediction-Datasets"><a href="#Link-Prediction-Datasets" class="headerlink" title="Link Prediction Datasets"></a>Link Prediction Datasets</h1><div class="table-container"><table><thead><tr><th>规模</th><th>数据集名称</th><th>节点</th><th>边数</th><th>同质图</th><th>无权</th><th>无向</th></tr></thead><tbody><tr><td>Small</td><td>ogbl-ddi</td><td>4267</td><td>1,334,889</td><td>T</td><td>T</td><td>T</td></tr><tr><td>Small</td><td>ogbl-collab</td><td>235,868</td><td>1,285,465</td><td>T</td><td>T</td><td>T</td></tr><tr><td>Small</td><td>ogbl-biokg</td><td>93773</td><td>5088434</td><td>F</td><td>F</td><td>F</td></tr><tr><td>Medium</td><td>ogbl-ppa</td><td>576,289</td><td>30,326,273</td><td>T</td><td>T</td><td>T</td></tr><tr><td>Medium</td><td>ogbl-citation2</td><td>2,927,963</td><td>30,561,187</td><td>T</td><td>T</td><td>F</td></tr><tr><td>Medium</td><td>ogbl-wikikg2</td><td>2,500,604</td><td>17,137,181</td><td>T</td><td>F</td><td>F</td></tr><tr><td>Medium</td><td>ogbl-vessel</td><td>3,538,495</td><td>5,345,897</td><td>T</td><td>T</td><td>T</td></tr></tbody></table></div><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p><p><a href="http://vlado.fmf.uni-lj.si/pub/networks/data/">http://vlado.fmf.uni-lj.si/pub/networks/data/</a></p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a> 有六个标准数据集用作LInk Prediction</p><p><a href="https://ogb.stanford.edu/docs/leader_linkprop/">https://ogb.stanford.edu/docs/leader_linkprop/</a> OGB数据集排行榜</p><ol><li><p>USAir</p><p>1987年美国的航空交通情况 332节点 2126边 无节点属性</p><p><a href="http://vlado.fmf.uni-lj.si/pub/networks/pajek/data/gphs.htm">Graph Files (uni-lj.si)</a></p></li><li><p>Coauthorships in network science</p><p>共同作者网络 1589 节点和 2742 边 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p><p>介绍：<a href="https://studentwork.prattsi.org/infovis/visualization/coauthorship-network-science/">Coauthorship in Network Science – Information Visualization (prattsi.org)</a></p></li><li><p>Political blogs</p><p>美国政治博客之间的超链接网络 有向图 包含1490个结点和19090条边 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p></li><li><p>Yeast</p><p>预测蛋白质的细胞定位位点 无节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/Yeast">https://archive.ics.uci.edu/ml/datasets/Yeast</a></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230406164418143.png" alt="" style="zoom:50%;"></p></li><li><p>Power</p><p>美国西部各州电网拓扑结构的无向、未加权网络 无节点属性</p><p><a href="http://www-personal.umich.edu/~mejn/netdata/">Network data (umich.edu)</a></p></li><li><p>Rocketfuel</p><p>ISP 拓扑映射 无节点属性</p><p><a href="https://research.cs.washington.edu/networking/rocketfuel/">https://research.cs.washington.edu/networking/rocketfuel/</a></p></li><li><p>E.coli</p><p>336种大肠杆菌蛋白质被分为8类，里面包含蛋白质定位位点 无节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/ecoli">https://archive.ics.uci.edu/ml/datasets/ecoli</a></p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230406170608849.png" alt="" style="zoom:50%;"></p></li><li><p>Cora</p><p><a href="http://www.cs.umd.edu/~sen/lbc-proj/LBC.html">http://www.cs.umd.edu/~sen/lbc-proj/LBC.html</a> </p><p>包含2708篇科学出版物， 5429条边，总共7种类别，引文网络由 5429 个链接组成。有节点属性</p></li><li><p>Citeseer</p><p>包含 3312 份科学出版物，分为六类之一，引文网络由 4732 个链接组成。 有节点属性</p></li><li><p>WebKB</p><p><a href="http://www.cs.cmu.edu/~webkb/">http://www.cs.cmu.edu/~webkb/</a></p><p>包含 877 份科学出版物，分为五类之一，引文网络由 1608 个链接组成。有节点属性</p><p>Wisconsin、Cornell、Texas子集</p></li><li><p>Pubmed</p><p>生物医学方面的论文搜寻以及摘要，包含了19717篇糖尿病相关的科学出版物，这些出版物被分成三个类别。 这些出版物的互相引用网络包含了44338条边。有节点属性</p><p><a href="https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups">https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups</a></p></li><li><p>ogbl-ppa</p><p>576,289Nodes 30,326,273Edges </p><p>蛋白质关系网络 同构 无向、无权的图</p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p></li><li><p>ogbl-ddi</p><p>4,267Nodes 1,334,889Edges </p><p>药物相互作用网络 同构、无权、无图</p><p><a href="https://ogb.stanford.edu/docs/linkprop/">https://ogb.stanford.edu/docs/linkprop/</a></p></li><li><p>ogbl-collab</p><p>235,868Nodes 1,285,465Edges</p><p>无向图 多重图（两点间可能存在多边）</p><p>MAG 索引的作者之间的协作网络的子集</p></li><li><p>ogbl-citation2</p><p>2,927,963Nodes 30,561,187Edges</p><p>有向图 </p><p>从 MAG [1] 中提取的论文子集之间的引用网络</p></li><li><p>ogbl-wikikg2</p><p>维基数据知识库[1]中提取的知识图谱</p><p>2,500,604Nodes 17,137,181Edges</p></li><li><p>ogbl-biokg</p><p>知识图谱 </p><p>93,773Nodes 5,088,434Edges</p><p>疾病（10,687个节点）、蛋白质（17,499个）、药物（10,533个节点）、副作用（9,969个节点）和蛋白质功能（45,085个节点）</p><p>有向边 </p></li><li><p>ogbl-vessel</p><p>整个小鼠大脑的无向、未加权空间图</p><p>3,538,495Nodes 5,345,897Edges</p></li></ol>]]></content>
       
       
       <categories>
@@ -490,9 +519,9 @@
       
         <tags>
             
-            <tag> Graph Learning </tag>
-            
             <tag> Link Prediction </tag>
+            
+            <tag> Graph Learning </tag>
             
         </tags>
       
@@ -917,9 +946,9 @@
       
         <tags>
             
-            <tag> GRU </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> GRU </tag>
             
         </tags>
       
@@ -944,9 +973,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> LSTM </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
