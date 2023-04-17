@@ -8,7 +8,7 @@
       <link href="/2023/04/17/papers/sgl/"/>
       <url>/2023/04/17/papers/sgl/</url>
       
-        <content type="html"><![CDATA[<h1 id="Self-supervised-Graph-Learning-for-Recommendation"><a href="#Self-supervised-Graph-Learning-for-Recommendation" class="headerlink" title="Self-supervised Graph Learning for Recommendation"></a>Self-supervised Graph Learning for Recommendation</h1><h2 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1. Motivation"></a>1. Motivation</h2><p>解决目前基于user-item二分图表征学习的推荐系统面临的两大核心问题：</p><ol><li>流行度偏差：高度节点对表征学习的影响较大，恶化了低度项目的推荐</li><li>鲁棒性问题：表征容易受到噪声交互的影响，因为邻域聚合方案进一步扩大了观察到的边缘的影响。</li></ol><h2 id="2-METHODOLOGY"><a href="#2-METHODOLOGY" class="headerlink" title="2. METHODOLOGY"></a>2. METHODOLOGY</h2><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417213410289.png" alt="SGL的整体框架"></p><ul><li>上层说明了主要监督学习任务的工作流程。</li><li>下层显示了经过数据增强的图结构SSL任务工作流程。</li></ul><p>SGL的主要流程是：</p><ol><li><p>数据增强，生成多个视图</p><ul><li>Node Dropout</li></ul><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215712660.png" alt="" style="zoom:67%;"></p><ul><li>Edge Dropout</li></ul><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215833682.png" alt="" style="zoom:67%;"></p><ul><li><p>Random Walk</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215851241.png" alt="" style="zoom:67%;"></p></li></ul><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417221032274.png" alt="3层GCN中ED与RW的例子" style="zoom:67%;"></p></li><li><p>利用图编码，形成不同视图的节点Representation，在这些表征上做对比学习</p><p>InfoNCE Loss</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215610873.png" alt="" style="zoom:67%;"></p></li><li><p>将传统的监督目标与对比学习监督目标相加，形成多目标学习范式</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215936196.png" alt="" style="zoom:80%;"></p><p>item侧和user侧是对称的，同理得到item的损失函数，因此最终自监督的损失函数如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220222285.png" alt="" style="zoom:80%;"></p><p>最终的损失函数：推荐系统常用的BPR-pairwise损失函数自监督结合起来做联合训练</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220017621.png" alt="" style="zoom:80%;"></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="Self-supervised-Graph-Learning-for-Recommendation"><a href="#Self-supervised-Graph-Learning-for-Recommendation" class="headerlink" title="Self-supervised Graph Learning for Recommendation"></a>Self-supervised Graph Learning for Recommendation</h1><h2 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1. Motivation"></a>1. Motivation</h2><p>解决目前基于user-item二分图表征学习的推荐系统面临的两大核心问题：</p><ol><li>流行度偏差：高度节点对表征学习的影响较大，恶化了低度项目的推荐</li><li>鲁棒性问题：表征容易受到噪声交互的影响，因为邻域聚合方案进一步扩大了观察到的边缘的影响。</li></ol><h2 id="2-METHODOLOGY"><a href="#2-METHODOLOGY" class="headerlink" title="2. METHODOLOGY"></a>2. METHODOLOGY</h2><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417213410289.png" alt="SGL的整体框架"></p><ul><li>上层说明了主要监督学习任务的工作流程。</li><li>下层显示了经过数据增强的图结构SSL任务工作流程。</li></ul><p>SGL的主要流程是：</p><ol><li><p>数据增强，生成多个视图</p><ul><li>Node Dropout</li></ul><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215712660.png" alt="" style="zoom:67%;"></p><ul><li>Edge Dropout</li></ul><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215833682.png" alt="" style="zoom:67%;"></p><ul><li><p>Random Walk</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215851241.png" alt="" style="zoom:67%;"></p></li></ul><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417221032274.png" alt="3层GCN中ED与RW的例子" style="zoom:67%;"></p></li><li><p>利用图编码，形成不同视图的节点Representation，在这些表征上做对比学习</p><p>InfoNCE Loss</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215610873.png" alt="" style="zoom:67%;"></p></li><li><p>将传统的监督目标与对比学习监督目标相加，形成多目标学习范式</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417215936196.png" alt="" style="zoom:80%;"></p><p>item侧和user侧是对称的，同理得到item的损失函数，因此最终自监督的损失函数如下：</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220222285.png" alt="" style="zoom:80%;"></p><p>最终的损失函数：推荐系统常用的BPR-pairwise损失函数自监督结合起来做联合训练</p><p><img src="http://yanhaoli-images.oss-cn-beijing.aliyuncs.com/img/image-20230417220017621.png" alt="" style="zoom:80%;"></p></li></ol><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h2><p><a href="https://zhuanlan.zhihu.com/p/374614160">SIGIR’21|SGL基于图自监督学习的推荐系统 - 知乎 (zhihu.com)</a></p><h2 id="4-论文"><a href="#4-论文" class="headerlink" title="4. 论文"></a>4. 论文</h2><p><em>Jiancan Wu, Xiang Wang, Fuli Feng, Xiangnan He, Liang Chen, Jianxun Lian, and Xing Xie. 2021. Self-supervised Graph Learning for Recommendation. In Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR ‘21). Association for Computing Machinery, New York, NY, USA, 726–735. <a href="https://doi.org/10.1145/3404835.3462862">https://doi.org/10.1145/3404835.3462862</a></em></p>]]></content>
       
       
       <categories>
@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> Graph Learning </tag>
+            
+            <tag> Deep Learning </tag>
             
             <tag> Self-supervised </tag>
             
@@ -51,9 +51,9 @@
             
             <tag> LeetCode100 </tag>
             
-            <tag> AC </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> AC </tag>
             
             <tag> 双指针 </tag>
             
@@ -107,9 +107,9 @@
             
             <tag> LeetCode100 </tag>
             
-            <tag> AC </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> AC </tag>
             
             <tag> 双指针 </tag>
             
@@ -138,9 +138,9 @@
             
             <tag> LeetCode100 </tag>
             
-            <tag> AC </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> AC </tag>
             
             <tag> 哈希 </tag>
             
@@ -169,9 +169,9 @@
             
             <tag> LeetCode100 </tag>
             
-            <tag> AC </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> AC </tag>
             
             <tag> 哈希 </tag>
             
@@ -202,9 +202,9 @@
             
             <tag> AC </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -809,9 +809,9 @@
             
             <tag> LeetCode100 </tag>
             
-            <tag> AC </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> AC </tag>
             
         </tags>
       
@@ -836,11 +836,11 @@
       
         <tags>
             
+            <tag> 链表 </tag>
+            
             <tag> LeetCode100 </tag>
             
             <tag> Medium </tag>
-            
-            <tag> 链表 </tag>
             
         </tags>
       
