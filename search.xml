@@ -519,9 +519,9 @@
       
         <tags>
             
-            <tag> Link Prediction </tag>
-            
             <tag> Graph Learning </tag>
+            
+            <tag> Link Prediction </tag>
             
         </tags>
       
@@ -946,9 +946,9 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> GRU </tag>
+            
+            <tag> Deep Learning </tag>
             
         </tags>
       
@@ -973,9 +973,9 @@
       
         <tags>
             
-            <tag> LSTM </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> LSTM </tag>
             
         </tags>
       
